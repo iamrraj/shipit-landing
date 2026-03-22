@@ -1,0 +1,5 @@
+# ShipIt — AI Developer Workspace
+User-agent: *
+Allow: /
+
+Sitemap: https://shipit.dev/sitemap.xml

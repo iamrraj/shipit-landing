@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0;padding:0;background-color:#f8fafc;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f8fafc;padding:40px 20px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="background-color:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(15,23,42,0.08);">
+          <!-- Header -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#0f172a,#1e293b);padding:32px 40px;text-align:center;">
+              <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:700;">
+                Ship<span style="color:#3b82f6;">It</span>
+              </h1>
+              <p style="margin:8px 0 0;color:#94a3b8;font-size:13px;letter-spacing:0.05em;">
+                Your token is ready
+              </p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px;">
+              <h2 style="margin:0 0 16px;color:#0f172a;font-size:22px;font-weight:600;">
+                Your ShipIt token is now active, {{ name }}!
+              </h2>
+
+              <p style="margin:0 0 20px;color:#475569;font-size:15px;line-height:1.7;">
+                Your early access token has been activated. Use it to install and authenticate
+                your ShipIt CLI.
+              </p>
+
+              <!-- Token box -->
+              <table role="presentation" cellspacing="0" cellpadding="0" style="margin:24px 0;width:100%;">
+                <tr>
+                  <td style="background-color:#0f172a;border-radius:12px;padding:20px;">
+                    <p style="margin:0 0 8px;color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">
+                      Your Token
+                    </p>
+                    <code style="color:#3b82f6;font-size:14px;word-break:break-all;font-family:'SF Mono',Monaco,monospace;">
+                      {{ token_key }}
+                    </code>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Details -->
+              <table role="presentation" cellspacing="0" cellpadding="0" style="margin:24px 0;width:100%;">
+                <tr>
+                  <td style="background-color:#f1f5f9;border-radius:12px;padding:20px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" width="100%">
+                      <tr>
+                        <td style="padding:6px 0;color:#475569;font-size:14px;">
+                          <strong>Active from:</strong> {{ start_date }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 0;color:#475569;font-size:14px;">
+                          <strong>Expires:</strong> {{ end_date }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 0;color:#475569;font-size:14px;">
+                          <strong>Status:</strong>
+                          <span style="color:#16a34a;font-weight:600;">Active</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 16px;color:#475569;font-size:15px;line-height:1.7;">
+                To authenticate your CLI, run:
+              </p>
+
+              <table role="presentation" cellspacing="0" cellpadding="0" style="margin:0 0 24px;width:100%;">
+                <tr>
+                  <td style="background-color:#0f172a;border-radius:8px;padding:14px 18px;">
+                    <code style="color:#a5f3fc;font-size:13px;font-family:'SF Mono',Monaco,monospace;">
+                      shipit auth --token {{ token_key }}
+                    </code>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0;color:#94a3b8;font-size:13px;">
+                Keep this token safe. Do not share it publicly.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f8fafc;padding:24px 40px;border-top:1px solid #e2e8f0;text-align:center;">
+              <p style="margin:0;color:#94a3b8;font-size:12px;line-height:1.6;">
+                ShipIt — Open-source AI developer workspace<br>
+                Built with ShipIt + Claude Code + Codex + FastAPI + React
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
