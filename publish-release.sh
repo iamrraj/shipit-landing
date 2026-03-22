@@ -6,7 +6,7 @@
 #    ./publish-release.sh /path/to/shipit-app-v1.0.0.tar.gz
 #
 #  This copies the archive to releases/ and updates latest/version.txt
-#  so that `curl -fsSL https://shipit.dev/install.sh | bash` picks it up.
+#  so that `curl -fsSL https://shipiit.com/install.sh | bash` picks it up.
 # ============================================================
 
 set -euo pipefail
@@ -49,7 +49,7 @@ echo -e "${GREEN}[release]${NC} Updated latest → ${CYAN}v$VERSION${NC}"
 
 echo ""
 echo -e "${GREEN}Published!${NC} Users can now install with:"
-echo -e "  ${CYAN}curl -fsSL https://shipit.dev/install.sh | bash${NC}"
+echo -e "  ${CYAN}curl -fsSL https://shipiit.com/install.sh | bash${NC}"
 echo ""
 echo -e "Or install this specific version:"
-echo -e "  ${CYAN}SHIPIT_VERSION=$VERSION curl -fsSL https://shipit.dev/install.sh | bash${NC}"
+echo -e "  ${CYAN}SHIPIT_VERSION=$VERSION curl -fsSL https://shipiit.com/install.sh | bash${NC}"

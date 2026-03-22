@@ -331,13 +331,17 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 }
 
 .landing-card-3d-inner {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
   transform-style: preserve-3d;
 }
 
 .landing-card-3d-inner:hover {
   transform: rotateY(-3deg) rotateX(2deg) translateY(-6px) scale(1.01);
-  box-shadow: 0 32px 70px -30px rgba(37, 99, 235, 0.22), 0 0 0 1px rgba(37, 99, 235, 0.08);
+  box-shadow:
+    0 32px 70px -30px rgba(37, 99, 235, 0.22),
+    0 0 0 1px rgba(37, 99, 235, 0.08);
 }
 
 /* ── Gradient text shimmer ────────────────────────── */
@@ -376,7 +380,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* ── SVG node pulse ───────────────────────────────── */
 @keyframes svg-node-pulse {
-  0%, 100% {
+  0%,
+  100% {
     r: 7;
     opacity: 1;
   }
@@ -401,7 +406,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* ── Floating 3D rotation ─────────────────────────── */
 @keyframes float-3d {
-  0%, 100% {
+  0%,
+  100% {
     transform: perspective(600px) rotateY(0deg) rotateX(0deg) translateY(0px);
   }
   25% {
@@ -411,7 +417,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
     transform: perspective(600px) rotateY(-2deg) rotateX(3deg) translateY(-4px);
   }
   75% {
-    transform: perspective(600px) rotateY(-4deg) rotateX(-1deg) translateY(-10px);
+    transform: perspective(600px) rotateY(-4deg) rotateX(-1deg)
+      translateY(-10px);
   }
 }
 
@@ -422,7 +429,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* ── Morphing blob ────────────────────────────────── */
 @keyframes morph-blob {
-  0%, 100% {
+  0%,
+  100% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
   25% {
@@ -464,7 +472,12 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.15), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.15),
+    transparent
+  );
   animation: glow-line 4s ease-in-out infinite;
   pointer-events: none;
 }
@@ -474,14 +487,30 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   animation: scroll-reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.stagger-children.is-visible > *:nth-child(1) { animation-delay: 0ms; }
-.stagger-children.is-visible > *:nth-child(2) { animation-delay: 80ms; }
-.stagger-children.is-visible > *:nth-child(3) { animation-delay: 160ms; }
-.stagger-children.is-visible > *:nth-child(4) { animation-delay: 240ms; }
-.stagger-children.is-visible > *:nth-child(5) { animation-delay: 320ms; }
-.stagger-children.is-visible > *:nth-child(6) { animation-delay: 400ms; }
-.stagger-children.is-visible > *:nth-child(7) { animation-delay: 480ms; }
-.stagger-children.is-visible > *:nth-child(8) { animation-delay: 560ms; }
+.stagger-children.is-visible > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger-children.is-visible > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.stagger-children.is-visible > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.stagger-children.is-visible > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+.stagger-children.is-visible > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+.stagger-children.is-visible > *:nth-child(6) {
+  animation-delay: 400ms;
+}
+.stagger-children.is-visible > *:nth-child(7) {
+  animation-delay: 480ms;
+}
+.stagger-children.is-visible > *:nth-child(8) {
+  animation-delay: 560ms;
+}
 
 .stagger-children > * {
   opacity: 0;
@@ -489,7 +518,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* ── Gradient border glow ─────────────────────────── */
 @keyframes border-glow {
-  0%, 100% {
+  0%,
+  100% {
     border-color: rgba(37, 99, 235, 0.15);
     box-shadow: 0 0 0 rgba(37, 99, 235, 0);
   }
@@ -517,7 +547,8 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* ── Floating particles ──────────────────────────── */
 @keyframes particle-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateX(0) scale(1);
     opacity: 0.6;
   }
@@ -863,7 +894,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   top: 14%;
   width: 7.5rem;
   height: 7.5rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.14), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.14),
+    transparent 70%
+  );
   animation: float-slow 12s ease-in-out infinite;
 }
 
@@ -872,7 +907,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   bottom: 8%;
   width: 6rem;
   height: 6rem;
-  background: radial-gradient(circle, rgba(148, 163, 184, 0.16), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(148, 163, 184, 0.16),
+    transparent 70%
+  );
   animation: float-delay 13s ease-in-out infinite;
 }
 
@@ -926,7 +965,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   top: 14%;
   width: 7.5rem;
   height: 7.5rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.14), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.14),
+    transparent 70%
+  );
   animation: float-slow 12s ease-in-out infinite;
 }
 
@@ -935,7 +978,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   bottom: 8%;
   width: 6rem;
   height: 6rem;
-  background: radial-gradient(circle, rgba(148, 163, 184, 0.16), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(148, 163, 184, 0.16),
+    transparent 70%
+  );
   animation: float-delay 13s ease-in-out infinite;
 }
 
@@ -951,7 +998,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   top: 2rem;
   width: 10rem;
   height: 10rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    transparent 70%
+  );
 }
 
 .landing-hero-illustration-glow-b {
@@ -959,7 +1010,11 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   bottom: 1rem;
   width: 10rem;
   height: 10rem;
-  background: radial-gradient(circle, rgba(147, 197, 253, 0.24), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.24),
+    transparent 70%
+  );
 }
 
 html.dark .landing-aurora-a {
@@ -1158,7 +1213,11 @@ html.dark .app-shell::after {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(14, 165, 233, 0.12),
+      transparent 30%
+    ),
     linear-gradient(160deg, var(--color-surface), rgba(59, 130, 246, 0.06));
 }
 
@@ -1166,7 +1225,12 @@ html.dark .app-shell::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
   transform: translateX(-100%);
   animation: glow-line 7s ease-in-out infinite;
   pointer-events: none;
@@ -1195,7 +1259,11 @@ html.dark .app-shell::after {
   top: 10%;
   width: 4.5rem;
   height: 4.5rem;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.15),
+    transparent 72%
+  );
   animation: float-delay 9s ease-in-out infinite;
 }
 
@@ -1225,7 +1293,11 @@ html.dark .app-shell::after {
   top: 10rem;
   width: 20rem;
   height: 20rem;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.16),
+    transparent 72%
+  );
 }
 
 .landing-hero-stage-wrap {
@@ -1233,8 +1305,8 @@ html.dark .app-shell::after {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  min-height: clamp(24rem, 42vw, 38rem);
-  padding: 4.75rem 1rem 1.5rem;
+  /* min-height: clamp(24rem, 42vw, 38rem); */
+  padding: 0.01rem 0rem 0rem;
 }
 
 .landing-hero-stage-glow {
@@ -1242,7 +1314,11 @@ html.dark .app-shell::after {
   inset: auto 12% 3rem;
   height: 12rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 72%
+  );
   filter: blur(40px);
   pointer-events: none;
 }
@@ -1282,25 +1358,25 @@ html.dark .app-shell::after {
 
 .landing-hero-floating-a {
   left: 3%;
-  top: 4.5rem;
+  top: -1rem;
   animation: float-slow 11s ease-in-out infinite;
 }
 
 .landing-hero-floating-b {
   right: 3%;
-  top: 7rem;
+  top: 1.5rem;
   animation: float-delay 12s ease-in-out infinite;
 }
 
 .landing-hero-floating-c {
   left: 8%;
-  bottom: 3rem;
+  bottom: -1.5rem;
   animation: float-delay 10s ease-in-out infinite;
 }
 
 .landing-hero-floating-d {
   right: 8%;
-  bottom: 4.5rem;
+  bottom: -0.5rem;
   animation: float-slow 12s ease-in-out infinite;
 }
 
@@ -1310,7 +1386,11 @@ html.dark .app-shell::after {
   overflow: hidden;
   border-radius: 28px;
   border: 1px solid rgba(148, 163, 184, 0.18);
-  background: linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(15, 23, 42, 0.86));
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.92),
+    rgba(15, 23, 42, 0.86)
+  );
   padding: 0.85rem;
   box-shadow: 0 30px 60px -38px rgba(2, 6, 23, 0.7);
 }
@@ -1328,7 +1408,11 @@ html.dark .app-shell::after {
   inset: auto 8% -18% 8%;
   height: 9rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.28), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.28),
+    transparent 72%
+  );
   filter: blur(30px);
 }
 
@@ -1338,7 +1422,11 @@ html.dark .app-shell::after {
   border-radius: 30px;
   border: 1px solid var(--color-border);
   background:
-    radial-gradient(circle at center, rgba(59, 130, 246, 0.12), transparent 38%),
+    radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.12),
+      transparent 38%
+    ),
     linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.06));
   padding: 1rem;
 }
@@ -1420,7 +1508,11 @@ html.dark .app-shell::after {
   right: 0;
   width: 10rem;
   height: 10rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    transparent 68%
+  );
 }
 
 .landing-engine-showcase-orb-b {
@@ -1428,7 +1520,11 @@ html.dark .app-shell::after {
   left: 10%;
   width: 8rem;
   height: 8rem;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.14), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.14),
+    transparent 70%
+  );
 }
 
 .landing-engine-selector {
@@ -1437,7 +1533,10 @@ html.dark .app-shell::after {
   background: rgba(255, 255, 255, 0.78);
   padding: 1rem;
   box-shadow: 0 18px 36px -30px rgba(15, 23, 42, 0.16);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .landing-engine-selector:hover {
@@ -1449,7 +1548,11 @@ html.dark .app-shell::after {
 .landing-engine-selector.is-active {
   border-color: rgba(37, 99, 235, 0.28);
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 36%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.08),
+      transparent 36%
+    ),
     linear-gradient(160deg, var(--color-surface), rgba(59, 130, 246, 0.06));
   box-shadow: 0 24px 50px -34px rgba(37, 99, 235, 0.22);
 }
@@ -1471,8 +1574,16 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.1), transparent 32%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(16, 185, 129, 0.1),
+      transparent 32%
+    ),
     linear-gradient(160deg, var(--color-surface), rgba(59, 130, 246, 0.05));
 }
 
@@ -1488,7 +1599,11 @@ html.dark .app-shell::after {
   right: -1rem;
   width: 10rem;
   height: 10rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 70%
+  );
 }
 
 .landing-engine-panel-orb-b {
@@ -1496,7 +1611,11 @@ html.dark .app-shell::after {
   left: 12%;
   width: 8rem;
   height: 8rem;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.18), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.18),
+    transparent 70%
+  );
 }
 
 .landing-engine-panel-ring {
@@ -1523,8 +1642,16 @@ html.dark .app-shell::after {
   border-radius: 30px;
   border: 1px solid var(--color-border);
   background:
-    radial-gradient(circle at center, rgba(59, 130, 246, 0.08), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(248, 250, 252, 0.86));
+    radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.08),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.66),
+      rgba(248, 250, 252, 0.86)
+    );
   overflow: hidden;
 }
 
@@ -1611,9 +1738,21 @@ html.dark .app-shell::after {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 28%),
-    radial-gradient(circle at 78% 18%, rgba(59, 130, 246, 0.14), transparent 26%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.94));
+    radial-gradient(
+      circle at top left,
+      rgba(249, 115, 22, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(59, 130, 246, 0.14),
+      transparent 26%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(248, 250, 252, 0.94)
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 28px 70px -50px rgba(15, 23, 42, 0.4);
@@ -1626,7 +1765,12 @@ html.dark .app-shell::after {
   transform: translateX(-50%);
   width: 1px;
   height: 10rem;
-  background: linear-gradient(to bottom, transparent, rgba(249, 115, 22, 0.5), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(249, 115, 22, 0.5),
+    transparent
+  );
   animation: landing-hero-beam 12s ease-in-out infinite;
 }
 
@@ -1643,7 +1787,11 @@ html.dark .app-shell::after {
   left: 10%;
   width: 10rem;
   height: 10rem;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.18), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.18),
+    transparent 68%
+  );
   animation: float-slow 14s ease-in-out infinite;
 }
 
@@ -1652,7 +1800,11 @@ html.dark .app-shell::after {
   right: 8%;
   width: 12rem;
   height: 12rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.16),
+    transparent 72%
+  );
   animation: float-delay 16s ease-in-out infinite;
 }
 
@@ -1661,7 +1813,11 @@ html.dark .app-shell::after {
   right: 28%;
   width: 5rem;
   height: 5rem;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.15),
+    transparent 72%
+  );
   animation: float-delay 10s ease-in-out infinite;
 }
 
@@ -1678,7 +1834,11 @@ html.dark .app-shell::after {
   top: 14rem;
   width: 20rem;
   height: 20rem;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.16), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.16),
+    transparent 72%
+  );
 }
 
 .landing-shipit-halo-b {
@@ -1686,7 +1846,11 @@ html.dark .app-shell::after {
   top: 8rem;
   width: 22rem;
   height: 22rem;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.14), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.14),
+    transparent 72%
+  );
 }
 
 .landing-shipit-glow {
@@ -1702,7 +1866,11 @@ html.dark .app-shell::after {
   left: -1rem;
   width: 13rem;
   height: 13rem;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.22), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.22),
+    transparent 70%
+  );
   animation: float-slow 12s ease-in-out infinite;
 }
 
@@ -1711,7 +1879,11 @@ html.dark .app-shell::after {
   bottom: -2rem;
   width: 15rem;
   height: 15rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 72%
+  );
   animation: float-delay 14s ease-in-out infinite;
 }
 
@@ -1739,7 +1911,11 @@ html.dark .app-shell::after {
   border-radius: 1.75rem;
   border: 1px solid rgba(249, 115, 22, 0.2);
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.24), transparent 32%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.24),
+      transparent 32%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.92));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -1751,8 +1927,16 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 26%),
-    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.12), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.14),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(249, 115, 22, 0.12),
+      transparent 26%
+    ),
     linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
 }
 
@@ -1826,9 +2010,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.1), transparent 26%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.94));
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(249, 115, 22, 0.1),
+      transparent 26%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(248, 250, 252, 0.94)
+    );
 }
 
 .landing-shipit-stage-card::before {
@@ -1846,9 +2042,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.08), transparent 26%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.96));
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(249, 115, 22, 0.08),
+      transparent 26%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(248, 250, 252, 0.96)
+    );
 }
 
 .landing-shipit-provider-panel::before,
@@ -1886,8 +2094,16 @@ html.dark .app-shell::after {
   border-radius: 28px;
   border: 1px solid rgba(59, 130, 246, 0.14);
   background:
-    radial-gradient(circle at center, rgba(59, 130, 246, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(248, 250, 252, 0.82));
+    radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.08),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.56),
+      rgba(248, 250, 252, 0.82)
+    );
   overflow: hidden;
 }
 
@@ -1918,7 +2134,11 @@ html.dark .app-shell::after {
   border-radius: 9999px;
   transform: translate(-50%, -50%);
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.22),
+      transparent 34%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
   color: white;
   justify-content: center;
@@ -1957,9 +2177,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.08), transparent 28%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.96));
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.08),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(249, 115, 22, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(248, 250, 252, 0.96)
+    );
 }
 
 .landing-shipit-local-panel {
@@ -1967,9 +2199,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 28%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(240, 253, 250, 0.92));
+    radial-gradient(
+      circle at top right,
+      rgba(16, 185, 129, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(59, 130, 246, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(240, 253, 250, 0.92)
+    );
 }
 
 .landing-shipit-install-card,
@@ -1983,13 +2227,21 @@ html.dark .app-shell::after {
 
 .landing-shipit-install-card {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 32%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.05),
+      transparent 32%
+    ),
     rgba(248, 250, 252, 0.8);
 }
 
 .landing-shipit-local-card {
   background:
-    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(16, 185, 129, 0.08),
+      transparent 30%
+    ),
     rgba(255, 255, 255, 0.82);
 }
 
@@ -2035,9 +2287,21 @@ html.dark .app-shell::after {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.14), transparent 28%),
-    radial-gradient(circle at 78% 18%, rgba(16, 185, 129, 0.12), transparent 26%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.96));
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(16, 185, 129, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(248, 250, 252, 0.96)
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 28px 70px -50px rgba(15, 23, 42, 0.36);
@@ -2056,7 +2320,11 @@ html.dark .app-shell::after {
   left: -1rem;
   width: 14rem;
   height: 14rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 70%
+  );
   animation: float-slow 13s ease-in-out infinite;
 }
 
@@ -2100,7 +2368,11 @@ html.dark .app-shell::after {
   inset: 1rem 12% auto;
   height: 18rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    transparent 68%
+  );
   filter: blur(34px);
 }
 
@@ -2162,9 +2434,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 26%),
-    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 26%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.94));
+    radial-gradient(
+      circle at top right,
+      rgba(16, 185, 129, 0.08),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(59, 130, 246, 0.08),
+      transparent 26%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(248, 250, 252, 0.94)
+    );
 }
 
 .landing-start-prompts::before {
@@ -2185,9 +2469,21 @@ html.dark .app-shell::after {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.12), transparent 28%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.96));
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(99, 102, 241, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(248, 250, 252, 0.96)
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 28px 70px -50px rgba(15, 23, 42, 0.36);
@@ -2206,7 +2502,11 @@ html.dark .app-shell::after {
   left: -1rem;
   width: 14rem;
   height: 14rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 70%
+  );
   animation: float-slow 13s ease-in-out infinite;
 }
 
@@ -2215,7 +2515,11 @@ html.dark .app-shell::after {
   bottom: -2rem;
   width: 15rem;
   height: 15rem;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.22), transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.22),
+    transparent 72%
+  );
   animation: float-delay 14s ease-in-out infinite;
 }
 
@@ -2275,8 +2579,16 @@ html.dark .app-shell::after {
   z-index: 1;
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 28%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.92));
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(248, 250, 252, 0.92)
+    );
   box-shadow: 0 24px 52px -36px rgba(15, 23, 42, 0.2);
 }
 
@@ -2285,9 +2597,21 @@ html.dark .app-shell::after {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.1), transparent 28%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.96));
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(99, 102, 241, 0.1),
+      transparent 28%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(248, 250, 252, 0.96)
+    );
 }
 
 .landing-pipeline-visual-panel::before {
@@ -2348,7 +2672,11 @@ html.dark .landing-aurora-d {
 
 html.dark .landing-stage-card {
   background:
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.1), transparent 34%),
+    radial-gradient(
+      circle at top right,
+      rgba(14, 165, 233, 0.1),
+      transparent 34%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.76), rgba(30, 41, 59, 0.92));
 }
 
@@ -2362,8 +2690,16 @@ html.dark .landing-engine-provider-card {
 html.dark .landing-engine-selector.is-active,
 html.dark .landing-engine-panel {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.08), transparent 32%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(16, 185, 129, 0.08),
+      transparent 32%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.76), rgba(30, 41, 59, 0.92));
 }
 
@@ -2396,8 +2732,16 @@ html.dark .landing-shipit-shell,
 html.dark .landing-shipit-provider-panel,
 html.dark .landing-shipit-support-panel {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.12), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(249, 115, 22, 0.12),
+      transparent 26%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.94));
 }
 
@@ -2412,7 +2756,11 @@ html.dark .landing-shipit-local-card {
 
 html.dark .landing-shipit-support-orbit {
   background:
-    radial-gradient(circle at center, rgba(59, 130, 246, 0.12), transparent 34%),
+    radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.12),
+      transparent 34%
+    ),
     linear-gradient(180deg, rgba(15, 23, 42, 0.74), rgba(30, 41, 59, 0.92));
   border-color: rgba(96, 165, 250, 0.14);
 }
@@ -2421,8 +2769,16 @@ html.dark .landing-shipit-stage-card,
 html.dark .landing-shipit-install-panel,
 html.dark .landing-shipit-local-panel {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.12), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(249, 115, 22, 0.12),
+      transparent 26%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.94));
 }
 
@@ -2434,8 +2790,16 @@ html.dark .landing-shipit-terminal-line {
 html.dark .landing-start-shell,
 html.dark .landing-start-prompts {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.1), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(16, 185, 129, 0.1),
+      transparent 26%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.94));
 }
 
@@ -2449,8 +2813,16 @@ html.dark .landing-start-floating {
 html.dark .landing-page-hero-shell,
 html.dark .landing-page-hero-panel {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.1), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(99, 102, 241, 0.1),
+      transparent 26%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.94));
 }
 
@@ -2461,8 +2833,16 @@ html.dark .landing-page-hero-floating {
 
 html.dark .landing-pipeline-visual-panel {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.1), transparent 26%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(99, 102, 241, 0.1),
+      transparent 26%
+    ),
     linear-gradient(160deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.94));
 }
 
@@ -2541,13 +2921,21 @@ html.dark .landing-pipeline-visual-panel {
 @media (max-width: 768px) {
   body {
     background:
-      radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 28%),
+      radial-gradient(
+        circle at top left,
+        rgba(96, 165, 250, 0.16),
+        transparent 28%
+      ),
       linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
   }
 
   html.dark body {
     background:
-      radial-gradient(circle at top left, rgba(30, 58, 138, 0.22), transparent 34%),
+      radial-gradient(
+        circle at top left,
+        rgba(30, 58, 138, 0.22),
+        transparent 34%
+      ),
       linear-gradient(180deg, #0c1222 0%, #0f172a 100%);
   }
 

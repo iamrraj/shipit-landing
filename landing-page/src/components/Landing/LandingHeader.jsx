@@ -6,8 +6,8 @@ const navItems = [
   { id: "shipit", label: "Ship CLI", icon: "/shipit-icon.svg" },
   { id: "engines", label: "Engines" },
   { id: "workflow", label: "Workflow" },
-  { id: "start", label: "Start" },
-  { id: "docs", label: "Docs" },
+  // { id: "start", label: "Start" },
+  // { id: "docs", label: "Docs" },
 ];
 
 export default function LandingHeader({

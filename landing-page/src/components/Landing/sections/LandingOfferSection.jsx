@@ -26,7 +26,9 @@ export default function LandingOfferSection() {
   const scrollToIndex = (index, shouldUpdateState = true) => {
     const scroller = scrollerRef.current;
     const cards = scroller?.querySelectorAll("[data-offer-card]");
-    const safeIndex = ((index % featureCards.length) + featureCards.length) % featureCards.length;
+    const safeIndex =
+      ((index % featureCards.length) + featureCards.length) %
+      featureCards.length;
     const nextCard = cards?.[safeIndex];
 
     if (!scroller || !nextCard) {
@@ -77,19 +79,23 @@ export default function LandingOfferSection() {
 
       <div className="mt-7 grid items-start gap-5 lg:grid-cols-[0.86fr_1.14fr]">
         {/* Left column */}
-        <div ref={leftRef} className={`scroll-reveal-left grid content-start gap-4 ${leftVisible ? "is-visible" : ""}`}>
+        <div
+          ref={leftRef}
+          className={`scroll-reveal-left grid content-start gap-4 ${leftVisible ? "is-visible" : ""}`}
+        >
           <div className="landing-stage-card rounded-[32px] border border-[var(--color-accent)]/18 p-5 shadow-[0_24px_50px_-36px_rgba(37,99,235,0.18)]">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/22 bg-[var(--color-accent)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
               Product tour
             </div>
             <div className="mt-4 text-2xl font-semibold leading-tight text-[var(--color-text-primary)]">
-              One workspace where prompting, repo actions, testing, review, and delivery all stay connected.
+              One workspace where prompting, repo actions, testing, review, and
+              delivery all stay connected.
             </div>
             <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-              Instead of bouncing between tools, ShipIt keeps the practical parts
-              of software delivery in one visible surface. The result is easier
-              scanning, less context loss, and a UI that explains the product
-              faster.
+              Instead of bouncing between tools, ShipIt keeps the practical
+              parts of software delivery in one visible surface. The result is
+              easier scanning, less context loss, and a UI that explains the
+              product faster.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -128,7 +134,12 @@ export default function LandingOfferSection() {
                   Branch-aware
                 </div>
               </div>
-              <img src="/screenshots/github.png" alt="ShipIt GitHub integration" className="w-full object-cover" loading="lazy" />
+              <img
+                src="/screenshots/github.png"
+                alt="ShipIt GitHub integration"
+                className="w-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -150,7 +161,8 @@ export default function LandingOfferSection() {
                 Feature showcase
               </div>
               <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
-                Auto-scrolls slowly. Hover to pause and use the arrows for manual browsing.
+                Auto-scrolls slowly. Hover to pause and use the arrows for
+                manual browsing.
               </p>
             </div>
 
@@ -189,11 +201,13 @@ export default function LandingOfferSection() {
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-sm transition-all duration-500 ${
-                    index === activeIndex
-                      ? "bg-[linear-gradient(160deg,var(--color-accent),#6366F1)] scale-110"
-                      : "bg-[linear-gradient(160deg,var(--color-accent),var(--color-accent-hover))]"
-                  }`}>
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-sm transition-all duration-500 ${
+                      index === activeIndex
+                        ? "bg-[linear-gradient(160deg,var(--color-accent),#6366F1)] scale-110"
+                        : "bg-[linear-gradient(160deg,var(--color-accent),var(--color-accent-hover))]"
+                    }`}
+                  >
                     <Icon size={19} />
                   </div>
                   <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
@@ -231,7 +245,9 @@ export default function LandingOfferSection() {
           <div className="mt-5 h-1 overflow-hidden rounded-full bg-[var(--color-border)]/40">
             <div
               className="h-full rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[#6366F1] transition-all duration-500"
-              style={{ width: `${((activeIndex + 1) / featureCards.length) * 100}%` }}
+              style={{
+                width: `${((activeIndex + 1) / featureCards.length) * 100}%`,
+              }}
             />
           </div>
 
@@ -253,14 +269,16 @@ export default function LandingOfferSection() {
           </div>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            {["Chat + commands", "Repo + files", "Review + tests"].map((item) => (
-              <div
-                key={item}
-                className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/70 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]"
-              >
-                {item}
-              </div>
-            ))}
+            {["Chat + commands", "Repo + files", "Review + tests"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/70 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]"
+                >
+                  {item}
+                </div>
+              ),
+            )}
           </div>
         </div>
       </div>

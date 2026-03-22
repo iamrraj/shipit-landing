@@ -23,14 +23,14 @@ const AUTO_ADVANCE_MS = 2600;
 /* ─── Install steps ────────────────────────────────── */
 const installLines = [
   {
-    text: "curl -fsSL https://shipit.dev/install.sh | bash",
+    text: "curl -fsSL https://shipiit.com/install.sh | bash",
     color: "text-emerald-300",
   },
-  { text: "shipit", color: "text-amber-300" },
+  { text: "shipitcli", color: "text-amber-300" },
 ];
 
-const installCode = `curl -fsSL https://shipit.dev/install.sh | bash
-shipit`;
+const installCode = `curl -fsSL https://shipiit.com/install.sh | bash
+shipitcli`;
 
 const startSignals = [
   "Download",
@@ -48,7 +48,7 @@ const operatorCards = [
   {
     icon: Key,
     title: "License activation",
-    desc: "Enter your token from shipit.dev on first launch. Validated and cached automatically.",
+    desc: "Enter your token from shipiit.com on first launch. Validated and cached automatically.",
   },
   {
     icon: ShieldCheck,
@@ -69,14 +69,14 @@ const startJourneySlides = [
     title: "Install ShipIt",
     summary:
       "One command to download, extract, and install ShipIt on your machine.",
-    prompt: "curl -fsSL https://shipit.dev/install.sh | bash",
+    prompt: "curl -fsSL https://shipiit.com/install.sh | bash",
     outcome: "ShipIt installed at ~/.shipit/ with all dependencies",
   },
   {
     phase: "02",
     title: "Activate your license",
     summary:
-      "Enter your license token from shipit.dev when prompted on first launch.",
+      "Enter your license token from shipiit.com when prompted on first launch.",
     prompt:
       "shipit\n  Enter your ShipIt license token: shipit_abc123...\n  License activated! Welcome, you@example.com",
     outcome: "Token validated, license cached in config/license.json",
@@ -103,12 +103,12 @@ const activationSteps = [
   {
     icon: Globe,
     title: "Get your token",
-    desc: "Sign in at shipit.dev and copy your license token from the dashboard.",
+    desc: "Sign in at shipiit.com and copy your license token from the dashboard.",
   },
   {
     icon: Terminal,
     title: "Enter on first launch",
-    desc: "Run 'shipit' — you'll be prompted to paste your token. Tokens start with shipit_.",
+    desc: "Run 'shipitcli' — you'll be prompted to paste your token. Tokens start with shipit_.",
   },
   {
     icon: Shield,
@@ -199,10 +199,10 @@ export default function LandingQuickStartSection({
 
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
               One command installs everything. Enter your license token from
-              shipit.dev on first launch, and the workspace opens in your
+              shipiit.com on first launch, and the workspace opens in your
               browser. Run{" "}
               <code className="rounded bg-white/10 px-1.5 py-0.5 text-sm font-mono">
-                shipit
+                shipitcli
               </code>{" "}
               every time after.
             </p>
@@ -349,7 +349,7 @@ export default function LandingQuickStartSection({
               Activate your license to start using ShipIt.
             </h3>
             <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
-              Get your token at shipit.dev, enter it on first launch or in the
+              Get your token at shipiit.com, enter it on first launch or in the
               browser, and your license is cached locally. Re-validation happens
               automatically every 6 hours. Works offline with a 24-hour grace
               period.
@@ -416,7 +416,7 @@ export default function LandingQuickStartSection({
               </div>
               <div className="mt-1 text-slate-400">
                 {"  Get your token at: "}
-                <span className="text-sky-400 underline decoration-sky-400/30">https://shipit.dev</span>
+                <span className="text-sky-400 underline decoration-sky-400/30">https://shipiit.com</span>
               </div>
               <div className="mt-2 text-slate-300">
                 {"  Enter your ShipIt license token: "}
@@ -624,9 +624,9 @@ export default function LandingQuickStartSection({
             </div>
             <div className="mt-4 grid gap-3">
               {[
-                "Run the install command: curl -fsSL https://shipit.dev/install.sh | bash",
+                "Run the install command: curl -fsSL https://shipiit.com/install.sh | bash",
                 "Everything is set up automatically — venv, deps, PATH, and launcher.",
-                "Enter your license token on first launch (get it at shipit.dev).",
+                "Enter your license token on first launch (get it at shipiit.com).",
                 "Open the UI at localhost:8000, select your engine, and describe your task.",
               ].map((step, index) => (
                 <div
@@ -651,7 +651,7 @@ export default function LandingQuickStartSection({
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               {[
                 "Python 3.10+ and Node.js 18+ installed on your system.",
-                "A license token from shipit.dev (free or paid plan).",
+                "A license token from shipiit.com (free or paid plan).",
                 "The UI opens at localhost:8000 and your first task runs cleanly.",
               ].map((item) => (
                 <div

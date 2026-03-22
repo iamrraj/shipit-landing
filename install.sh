@@ -3,7 +3,7 @@
 #  ShipIt — Remote Installer
 # ============================================================
 #  One-line install:
-#    curl -fsSL https://shipit.dev/install.sh | bash
+#    curl -fsSL https://shipiit.com/install.sh | bash
 #
 #  What it does:
 #    1. Detects OS and architecture
@@ -20,7 +20,8 @@
 set -euo pipefail
 
 # ── Config ─────────────────────────────────────────────
-DOWNLOAD_BASE="https://shipit.dev/releases"
+DOWNLOAD_BASE="https://shipiit.com/releases"
+ANALYTICS_API="https://shipiit.com/api/analytics"
 VERSION="${SHIPIT_VERSION:-latest}"
 INSTALL_DIR="${SHIPIT_DIR:-}"
 
@@ -99,7 +100,7 @@ if [ "$VERSION" = "latest" ]; then
     fi
 
     if [ -z "$VERSION" ]; then
-        err "Could not determine latest version. Set SHIPIT_VERSION manually:\n  SHIPIT_VERSION=1.0.0 curl -fsSL https://shipit.dev/install.sh | bash"
+        err "Could not determine latest version. Set SHIPIT_VERSION manually:\n  SHIPIT_VERSION=1.0.0 curl -fsSL https://shipiit.com/install.sh | bash"
     fi
 fi
 
@@ -130,6 +131,12 @@ fi
 
 ARCHIVE_SIZE=$(du -sh "$TMP_DIR/$ARCHIVE_NAME" 2>/dev/null | cut -f1 || echo "unknown")
 log "Downloaded ${CYAN}${ARCHIVE_SIZE}${NC}"
+
+# Track download (fire and forget)
+curl -s -X POST "$ANALYTICS_API/download/" \
+    -H "Content-Type: application/json" \
+    -d "{\"event\":\"archive\",\"version\":\"$VERSION\",\"platform\":\"$PLATFORM\",\"arch\":\"$ARCH_TAG\"}" \
+    --connect-timeout 3 --max-time 5 >/dev/null 2>&1 &
 
 # ── Extract ───────────────────────────────────────────
 
@@ -163,6 +170,21 @@ if [ -n "$INSTALL_DIR" ]; then
 fi
 
 bash install.sh
+INSTALL_RESULT=$?
+
+# Track install result (fire and forget)
+INSTALL_STATUS="completed"
+[ "$INSTALL_RESULT" -ne 0 ] && INSTALL_STATUS="failed"
+
+PYTHON_VER=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')" 2>/dev/null || echo "")
+NODE_VER=$(node -v 2>/dev/null | sed 's/^v//' || echo "")
+
+curl -s -X POST "$ANALYTICS_API/install/" \
+    -H "Content-Type: application/json" \
+    -d "{\"status\":\"$INSTALL_STATUS\",\"version\":\"$VERSION\",\"platform\":\"$PLATFORM\",\"arch\":\"$ARCH_TAG\",\"python_version\":\"$PYTHON_VER\",\"node_version\":\"$NODE_VER\"}" \
+    --connect-timeout 3 --max-time 5 >/dev/null 2>&1 &
+
+[ "$INSTALL_RESULT" -ne 0 ] && exit "$INSTALL_RESULT"
 
 # ── Done ──────────────────────────────────────────────
 
@@ -170,8 +192,8 @@ echo ""
 log "Installation complete!"
 echo ""
 echo -e "  ${BOLD}To start ShipIt:${NC}"
-echo -e "    ${CYAN}shipit${NC}"
+echo -e "    ${CYAN}shipitcli${NC}"
 echo ""
 echo -e "  ${BOLD}You'll be prompted for your license token on first launch.${NC}"
-echo -e "  Get one at: ${CYAN}https://shipit.dev${NC}"
+echo -e "  Get one at: ${CYAN}https://shipiit.com${NC}"
 echo ""

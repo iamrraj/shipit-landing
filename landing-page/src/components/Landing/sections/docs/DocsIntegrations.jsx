@@ -260,7 +260,7 @@ SKIP_OBFUSCATE=1 ./packaging/build.sh  # skip JS obfuscation`}</CodeBlock>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5">
           <Badge color="emerald">Mac / Linux</Badge>
-          <CodeBlock>{`curl -fsSL https://shipit.dev/install.sh | bash`}</CodeBlock>
+          <CodeBlock>{`curl -fsSL https://shipiit.com/install.sh | bash`}</CodeBlock>
           <p className="text-xs text-[var(--color-text-secondary)]">Downloads, extracts, installs to ~/.shipit/, creates venv, adds to PATH.</p>
         </div>
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5">
@@ -270,9 +270,9 @@ SKIP_OBFUSCATE=1 ./packaging/build.sh  # skip JS obfuscation`}</CodeBlock>
         </div>
       </div>
       <h4 className="mt-7 text-lg font-semibold text-[var(--color-text-primary)]">Launcher</h4>
-      <CodeBlock>{`shipit                    # default port 8000
-shipit --port 9000        # custom port
-shipit --host 0.0.0.0     # bind to all interfaces`}</CodeBlock>
+      <CodeBlock>{`shipitcli                    # default port 8000
+shipitcli --port 9000        # custom port
+shipitcli --host 0.0.0.0     # bind to all interfaces`}</CodeBlock>
     </div>
   );
 }

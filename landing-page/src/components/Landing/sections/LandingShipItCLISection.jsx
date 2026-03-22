@@ -1,3 +1,4 @@
+import shipitCliPng from "../svg/shipit_cli.png";
 import {
   ArrowRight,
   BadgeCheck,
@@ -41,26 +42,26 @@ const heroStats = [
 ];
 
 const providerPills = [
-  "AWS Bedrock", "OpenAI", "Gemini", "Vertex AI",
-  "Ollama", "Together AI", "Groq", "OpenRouter", "Custom",
+  "AWS Bedrock",
+  "OpenAI",
+  "Gemini",
+  "Vertex AI",
+  "Ollama",
+  "Together AI",
+  "Groq",
+  "OpenRouter",
+  "Custom",
 ];
 
 const shipitFlow = ["Install", "Route", "Inspect", "Code", "Verify", "Ship"];
 
-const commandPills = ["/model", "/provider", "/session", "/tools", "/hitl", "/plan"];
-
-const floatingCards = [
-  { className: "landing-shipit-float-card-1", title: "Multi-provider", label: "9 routes, one CLI" },
-  { className: "landing-shipit-float-card-2", title: "30 tools", label: "Files, git, security, code" },
-  { className: "landing-shipit-float-card-3", title: "HITL safety", label: "Approve or auto-run" },
-];
-
-const quickCommands = [
-  { cmd: "shipit", note: "Interactive REPL" },
-  { cmd: 'shipit "what does this project do?"', note: "One-shot" },
-  { cmd: "shipit -p bedrock -m amazon.nova-lite-v1:0", note: "Provider + model" },
-  { cmd: "shipit setup openai", note: "Configure" },
-  { cmd: "shipit --resume", note: "Resume session" },
+const commandPills = [
+  "/model",
+  "/provider",
+  "/session",
+  "/tools",
+  "/hitl",
+  "/plan",
 ];
 
 const whyShipIt = [
@@ -108,25 +109,104 @@ const installMethods = [
 ];
 
 const localRunCards = [
-  { icon: HardDrive, title: "Ollama", command: "shipit -p ollama -m qwen2.5-coder", desc: "100% local, no API key needed" },
-  { icon: Boxes, title: "LM Studio", command: "shipit -p custom -m <model>", desc: "OpenAI-compatible local server" },
-  { icon: Zap, title: "vLLM", command: "shipit -p custom -m Qwen/Qwen2.5-Coder-32B", desc: "High-throughput GPU inference" },
+  {
+    icon: HardDrive,
+    title: "Ollama",
+    command: "shipit -p ollama -m qwen2.5-coder",
+    desc: "100% local, no API key needed",
+  },
+  {
+    icon: Boxes,
+    title: "LM Studio",
+    command: "shipit -p custom -m <model>",
+    desc: "OpenAI-compatible local server",
+  },
+  {
+    icon: Zap,
+    title: "vLLM",
+    command: "shipit -p custom -m Qwen/Qwen2.5-Coder-32B",
+    desc: "High-throughput GPU inference",
+  },
 ];
 
 const featureCards = [
-  { icon: Layers3, title: "30 built-in tools", desc: "Files, search, archives, bash, git, tests, Docker, security, code intelligence." },
-  { icon: Command, title: "Slash commands", desc: "/model, /provider, /session, /tokens, /tools, /hitl, /plan, /compact." },
-  { icon: Lock, title: "HITL safety", desc: "Approve once, for session, edit inputs, or deny. Safe reads auto-approve." },
-  { icon: RefreshCw, title: "Sessions", desc: "Save, resume, rename. Auto-compact when context fills up." },
-  { icon: Image, title: "Multi-modal", desc: "Attach PNG, JPG, GIF, WebP for vision-capable model conversations." },
-  { icon: Monitor, title: "Rich display", desc: "Inline diffs, file previews, color-coded output, progress bars." },
+  {
+    icon: Layers3,
+    title: "40 + built-in tools",
+    desc: "Files, search, archives, bash, git, tests, Docker, security, code intelligence.",
+  },
+  {
+    icon: Command,
+    title: "Slash commands",
+    desc: "/model, /provider, /session, /tokens, /tools, /hitl, /plan, /compact.",
+  },
+  {
+    icon: Lock,
+    title: "HITL safety",
+    desc: "Approve once, for session, edit inputs, or deny. Safe reads auto-approve.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Sessions",
+    desc: "Save, resume, rename. Auto-compact when context fills up.",
+  },
+  {
+    icon: Image,
+    title: "Multi-modal",
+    desc: "Attach PNG, JPG, GIF, WebP for vision-capable model conversations.",
+  },
+  {
+    icon: Monitor,
+    title: "Rich display",
+    desc: "Inline diffs, file previews, color-coded output, progress bars.",
+  },
 ];
 
 const toolCategories = [
-  { icon: FolderSearch2, title: "Files & search", tools: ["read_file", "write_file", "edit_file", "inspect_path", "search_files"] },
-  { icon: ServerCog, title: "Shell & system", tools: ["bash_exec", "run_tests", "git_ops", "docker_ops", "package_install"] },
-  { icon: ShieldCheck, title: "Security", tools: ["vuln_scan", "secrets_scan", "security_audit", "ssl_check", "port_scan"] },
-  { icon: Bot, title: "Code intel", tools: ["code_analyze", "code_explain", "project_info", "web_fetch", "binary_inspect"] },
+  {
+    icon: FolderSearch2,
+    title: "Files & search",
+    tools: [
+      "read_file",
+      "write_file",
+      "edit_file",
+      "inspect_path",
+      "search_files",
+    ],
+  },
+  {
+    icon: ServerCog,
+    title: "Shell & system",
+    tools: [
+      "bash_exec",
+      "run_tests",
+      "git_ops",
+      "docker_ops",
+      "package_install",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security",
+    tools: [
+      "vuln_scan",
+      "secrets_scan",
+      "security_audit",
+      "ssl_check",
+      "port_scan",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "Code intel",
+    tools: [
+      "code_analyze",
+      "code_explain",
+      "project_info",
+      "web_fetch",
+      "binary_inspect",
+    ],
+  },
 ];
 
 /* ─── copy button ─── */
@@ -197,7 +277,8 @@ function DetailCarousel({ detailRef, detailVisible }) {
               Deep Dive
             </div>
             <div className="mt-3 text-2xl font-semibold leading-tight text-[var(--color-text-primary)]">
-              Local inference, key features, and 30 tools — without the scroll.
+              Local inference, key features, and 40 + tools — without the
+              scroll.
             </div>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
               Everything that ships inside the CLI, one panel at a time.
@@ -215,11 +296,22 @@ function DetailCarousel({ detailRef, detailVisible }) {
               }`}
               aria-label={isPaused ? "Resume" : "Pause"}
             >
-              {isPaused ? <Play size={16} /> : <span className="flex gap-[3px]"><span className="h-3.5 w-[2.5px] rounded-full bg-current" /><span className="h-3.5 w-[2.5px] rounded-full bg-current" /></span>}
+              {isPaused ? (
+                <Play size={16} />
+              ) : (
+                <span className="flex gap-[3px]">
+                  <span className="h-3.5 w-[2.5px] rounded-full bg-current" />
+                  <span className="h-3.5 w-[2.5px] rounded-full bg-current" />
+                </span>
+              )}
             </button>
             <button
               type="button"
-              onClick={() => setActiveIdx((c) => (c - 1 + DETAIL_SLIDE_COUNT) % DETAIL_SLIDE_COUNT)}
+              onClick={() =>
+                setActiveIdx(
+                  (c) => (c - 1 + DETAIL_SLIDE_COUNT) % DETAIL_SLIDE_COUNT,
+                )
+              }
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] transition-all duration-300 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
               aria-label="Previous"
             >
@@ -254,42 +346,69 @@ function DetailCarousel({ detailRef, detailVisible }) {
                       </span>
                       100% Local
                     </div>
-                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">No API key</div>
+                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                      No API key
+                    </div>
                   </div>
                   <div className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">
                     Private inference on your machine.
                   </div>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-                    Keep inference entirely local when privacy matters. Ollama, LM Studio,
-                    and vLLM all work out of the box — zero cloud dependency.
+                    Keep inference entirely local when privacy matters. Ollama,
+                    LM Studio, and vLLM all work out of the box — zero cloud
+                    dependency.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
-                    {["qwen2.5-coder", "deepseek-r1", "llama3.3", "codellama", "mistral", "phi-4"].map((m) => (
-                      <span key={m} className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-2.5 py-1 font-mono text-[10px] text-[var(--color-text-muted)]">{m}</span>
+                    {[
+                      "qwen2.5-coder",
+                      "deepseek-r1",
+                      "llama3.3",
+                      "codellama",
+                      "mistral",
+                      "phi-4",
+                    ].map((m) => (
+                      <span
+                        key={m}
+                        className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-2.5 py-1 font-mono text-[10px] text-[var(--color-text-muted)]"
+                      >
+                        {m}
+                      </span>
                     ))}
                   </div>
                 </div>
 
                 <div className="grid content-start gap-3">
-                  {localRunCards.map(({ icon: Icon, title, command, desc }, index) => (
-                    <div key={title} className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(160deg,#10b981,#34d399)] text-white shadow-[0_16px_32px_-20px_rgba(16,185,129,0.35)]">
-                          <Icon size={16} />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-[var(--color-text-primary)]">{title}</span>
-                            <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">0{index + 1}</span>
+                  {localRunCards.map(
+                    ({ icon: Icon, title, command, desc }, index) => (
+                      <div
+                        key={title}
+                        className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-4"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(160deg,#10b981,#34d399)] text-white shadow-[0_16px_32px_-20px_rgba(16,185,129,0.35)]">
+                            <Icon size={16} />
                           </div>
-                          <p className="text-[12px] leading-5 text-[var(--color-text-secondary)]">{desc}</p>
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm font-semibold text-[var(--color-text-primary)]">
+                                {title}
+                              </span>
+                              <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+                                0{index + 1}
+                              </span>
+                            </div>
+                            <p className="text-[12px] leading-5 text-[var(--color-text-secondary)]">
+                              {desc}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="mt-2.5 rounded-[10px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-3 py-2 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">
+                          <span className="text-emerald-500/60">$ </span>
+                          {command}
                         </div>
                       </div>
-                      <div className="mt-2.5 rounded-[10px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-3 py-2 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">
-                        <span className="text-emerald-500/60">$ </span>{command}
-                      </div>
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </div>
               </div>
             </article>
@@ -303,14 +422,17 @@ function DetailCarousel({ detailRef, detailVisible }) {
                       <BadgeCheck size={12} />
                       Key Features
                     </div>
-                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">6 highlights</div>
+                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                      6 highlights
+                    </div>
                   </div>
                   <div className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">
                     Everything in a terminal-native agent.
                   </div>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-                    Slash commands, HITL safety, session persistence, multi-modal
-                    input, rich inline diffs — all built into one CLI.
+                    Slash commands, HITL safety, session persistence,
+                    multi-modal input, rich inline diffs — all built into one
+                    CLI.
                   </p>
                   <div className="mt-4 rounded-[20px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/72 px-4 py-3 text-sm leading-6 text-[var(--color-text-primary)]">
                     One interface for tools, providers, and execution control.
@@ -319,15 +441,24 @@ function DetailCarousel({ detailRef, detailVisible }) {
 
                 <div className="grid content-start gap-2.5 sm:grid-cols-2">
                   {featureCards.map(({ icon: Icon, title, desc }, index) => (
-                    <div key={title} className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-3.5">
+                    <div
+                      key={title}
+                      className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-3.5"
+                    >
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[linear-gradient(160deg,var(--color-accent),#6366F1)] text-white shadow-sm">
                           <Icon size={15} />
                         </div>
-                        <span className="rounded-full bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">0{index + 1}</span>
+                        <span className="rounded-full bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+                          0{index + 1}
+                        </span>
                       </div>
-                      <div className="mt-2.5 text-[13px] font-semibold text-[var(--color-text-primary)]">{title}</div>
-                      <p className="mt-1 text-[12px] leading-5 text-[var(--color-text-secondary)]">{desc}</p>
+                      <div className="mt-2.5 text-[13px] font-semibold text-[var(--color-text-primary)]">
+                        {title}
+                      </div>
+                      <p className="mt-1 text-[12px] leading-5 text-[var(--color-text-secondary)]">
+                        {desc}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -341,16 +472,18 @@ function DetailCarousel({ detailRef, detailVisible }) {
                   <div className="flex items-center justify-between gap-3">
                     <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-500/8 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-300">
                       <Layers3 size={12} />
-                      30 Built-in Tools
+                      40 + Built-in Tools
                     </div>
-                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">4 categories</div>
+                    <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                      4 categories
+                    </div>
                   </div>
                   <div className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">
                     Files, shell, security, code intel.
                   </div>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-                    Read, write, search, execute, scan, and analyze — all available
-                    as first-class tools inside the agent loop.
+                    Read, write, search, execute, scan, and analyze — all
+                    available as first-class tools inside the agent loop.
                   </p>
                   <div className="mt-4 rounded-[20px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/72 px-4 py-3 text-sm leading-6 text-[var(--color-text-primary)]">
                     No plugins required. Every tool ships with the CLI.
@@ -359,17 +492,29 @@ function DetailCarousel({ detailRef, detailVisible }) {
 
                 <div className="grid content-start gap-3 sm:grid-cols-2">
                   {toolCategories.map(({ icon: Icon, title, tools }, index) => (
-                    <div key={title} className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-3.5">
+                    <div
+                      key={title}
+                      className="landing-card-3d-inner rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-3.5"
+                    >
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[linear-gradient(160deg,#0ea5e9,#6366F1)] text-white shadow-sm">
                           <Icon size={15} />
                         </div>
-                        <span className="text-[13px] font-semibold text-[var(--color-text-primary)]">{title}</span>
-                        <span className="ml-auto rounded-full bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">0{index + 1}</span>
+                        <span className="text-[13px] font-semibold text-[var(--color-text-primary)]">
+                          {title}
+                        </span>
+                        <span className="ml-auto rounded-full bg-[var(--color-surface)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+                          0{index + 1}
+                        </span>
                       </div>
                       <div className="mt-2.5 flex flex-wrap gap-1">
                         {tools.map((tool) => (
-                          <span key={tool} className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-2 py-0.5 font-mono text-[10px] text-[var(--color-text-muted)]">{tool}</span>
+                          <span
+                            key={tool}
+                            className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-2 py-0.5 font-mono text-[10px] text-[var(--color-text-muted)]"
+                          >
+                            {tool}
+                          </span>
                         ))}
                       </div>
                     </div>
@@ -432,7 +577,7 @@ export default function LandingShipItCLISection() {
               ShipIt CLI
             </div>
             <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-              9 providers. 30 tools. Your models.
+              9 providers. 40 + tools. Your models.
             </div>
           </div>
 
@@ -499,43 +644,84 @@ export default function LandingShipItCLISection() {
           </div>
         </div>
 
-        {/* ── Terminal showcase with floating cards ── */}
-        <div className="landing-shipit-stage relative z-10 mx-auto mt-10 max-w-5xl">
-          {floatingCards.map((card) => (
-            <div key={card.title} className={`landing-shipit-float-card ${card.className}`}>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
-                {card.title}
-              </div>
-              <div className="mt-1 text-sm font-medium text-[var(--color-text-primary)]">
-                {card.label}
-              </div>
-            </div>
-          ))}
+        {/* ── Screenshot showcase with floating cards ── */}
+        <div className="landing-hero-stage-wrap relative z-10 mx-auto mt-10 max-w-6xl">
+          <div className="landing-hero-stage-glow" />
+          <div className="landing-hero-stage-grid" />
 
-          <div className="mx-auto max-w-3xl">
-            <div className="landing-shipit-terminal rounded-[30px] border border-white/10 p-5 shadow-[0_30px_60px_-38px_rgba(2,6,23,0.72)]">
-              <div className="flex items-center justify-between gap-3 border-b border-white/8 pb-3">
+          {[
+            {
+              className: "landing-hero-floating-a",
+              title: "Multi-provider",
+              label: "9 routes, one CLI",
+              icon: Cloud,
+              color: "from-orange-500 to-amber-500",
+            },
+            {
+              className: "landing-hero-floating-b",
+              title: "30 Tools",
+              label: "Files, git, security, code",
+              icon: Layers3,
+              color: "from-blue-500 to-cyan-500",
+            },
+            {
+              className: "landing-hero-floating-c",
+              title: "HITL Safety",
+              label: "Approve or auto-run",
+              icon: ShieldCheck,
+              color: "from-emerald-500 to-teal-500",
+            },
+            {
+              className: "landing-hero-floating-d",
+              title: "Local Models",
+              label: "Ollama, vLLM, LM Studio",
+              icon: HardDrive,
+              color: "from-violet-500 to-purple-600",
+            },
+          ].map((card) => {
+            const CardIcon = card.icon;
+            return (
+              <div
+                key={card.title}
+                className={`landing-hero-floating ${card.className}`}
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br ${card.color} text-white shadow-sm`}
+                  >
+                    <CardIcon size={13} />
+                  </div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
+                    {card.title}
+                  </div>
+                </div>
+                <div className="mt-1.5 text-sm font-medium text-[var(--color-text-primary)]">
+                  {card.label}
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="landing-hero-frame mx-auto max-w-4xl">
+            <div className="landing-hero-screen">
+              <div className="landing-hero-screen-top">
                 <div className="flex items-center gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
                 </div>
                 <div className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                  Quick start
+                  ShipIt CLI terminal
                 </div>
               </div>
-              <div className="mt-3 grid gap-2">
-                {quickCommands.map(({ cmd, note }, index) => (
-                  <div key={cmd} className="group flex items-start gap-2.5">
-                    <span className="w-4 shrink-0 pt-0.5 text-right font-mono text-[10px] text-slate-600">{index + 1}</span>
-                    <div className="flex-1 rounded-[12px] border border-white/6 bg-white/[0.03] px-3 py-2 transition-all duration-300 group-hover:border-orange-400/20 group-hover:bg-white/[0.06]">
-                      <div className="font-mono text-[12px] leading-5 text-orange-300/90">
-                        <span className="text-slate-500">$ </span>{cmd}
-                      </div>
-                      <div className="text-[10px] leading-4 text-slate-500">{note}</div>
-                    </div>
-                  </div>
-                ))}
+              <div className="relative">
+                <div className="landing-hero-screen-glow" />
+                <img
+                  src={shipitCliPng}
+                  alt="ShipIt CLI — terminal-native AI coding agent"
+                  className="relative z-10 w-full rounded-[22px] object-cover"
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
@@ -560,9 +746,9 @@ export default function LandingShipItCLISection() {
               Not just generation. A visible, multi-provider coding agent.
             </div>
             <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-              Route across Bedrock, OpenAI, Gemini, Ollama, and more. Inspect deeply
-              before editing. Keep execution visible with inline diffs, progress bars,
-              and HITL safety gates.
+              Route across Bedrock, OpenAI, Gemini, Ollama, and more. Inspect
+              deeply before editing. Keep execution visible with inline diffs,
+              progress bars, and HITL safety gates.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -579,16 +765,30 @@ export default function LandingShipItCLISection() {
             </div>
           </div>
 
-          <div className={`stagger-children grid auto-rows-min gap-2.5 sm:grid-cols-2 ${statsVisible ? "is-visible" : ""}`}>
+          <div
+            className={`stagger-children grid auto-rows-min gap-2.5 sm:grid-cols-2 ${statsVisible ? "is-visible" : ""}`}
+          >
             {heroStats.map((item, index) => (
-              <div key={item.label} className="landing-card-3d-inner rounded-[24px] border border-[var(--color-border)] bg-[var(--color-surface)]/94 p-3.5 shadow-sm">
+              <div
+                key={item.label}
+                className="landing-card-3d-inner rounded-[24px] border border-[var(--color-border)] bg-[var(--color-surface)]/94 p-3.5 shadow-sm"
+              >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="font-display text-2xl font-semibold text-[var(--color-text-primary)]">{item.value}</div>
-                  <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/84 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">0{index + 1}</div>
+                  <div className="font-display text-2xl font-semibold text-[var(--color-text-primary)]">
+                    {item.value}
+                  </div>
+                  <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/84 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+                    0{index + 1}
+                  </div>
                 </div>
-                <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">{item.label}</div>
+                <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+                  {item.label}
+                </div>
                 <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-border)]/55">
-                  <div className="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-400" style={{ width: `${65 + index * 10}%` }} />
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-400"
+                    style={{ width: `${65 + index * 10}%` }}
+                  />
                 </div>
               </div>
             ))}
@@ -606,10 +806,16 @@ export default function LandingShipItCLISection() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(160deg,#f97316,#fb923c)] text-white shadow-[0_18px_36px_-22px_rgba(249,115,22,0.4)]">
                   <Icon size={18} />
                 </div>
-                <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">0{index + 1}</div>
+                <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+                  0{index + 1}
+                </div>
               </div>
-              <div className="mt-4 text-base font-semibold text-[var(--color-text-primary)]">{title}</div>
-              <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{desc}</p>
+              <div className="mt-4 text-base font-semibold text-[var(--color-text-primary)]">
+                {title}
+              </div>
+              <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+                {desc}
+              </p>
             </div>
           ))}
         </div>
@@ -622,21 +828,47 @@ export default function LandingShipItCLISection() {
               <div className="landing-shipit-support-ring landing-shipit-support-ring-a" />
               <div className="landing-shipit-support-ring landing-shipit-support-ring-b" />
               <div className="landing-shipit-support-core">
-                <img src="/shipit-icon.svg" alt="ShipIt" className="h-10 w-10" />
+                <img
+                  src="/shipit-icon.svg"
+                  alt="ShipIt"
+                  className="h-10 w-10"
+                />
                 <span>ShipIt</span>
               </div>
-              {["Bedrock", "OpenAI", "Gemini", "Ollama", "Groq", "Custom"].map((item, index) => (
-                <div key={item} className={`landing-shipit-support-node landing-shipit-support-node-${index + 1}`}>{item}</div>
-              ))}
+              {["Bedrock", "OpenAI", "Gemini", "Ollama", "Groq", "Custom"].map(
+                (item, index) => (
+                  <div
+                    key={item}
+                    className={`landing-shipit-support-node landing-shipit-support-node-${index + 1}`}
+                  >
+                    {item}
+                  </div>
+                ),
+              )}
             </div>
             <div className="relative z-10 mt-3">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-600 dark:text-orange-300">Multi-provider routing</div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-600 dark:text-orange-300">
+                Multi-provider routing
+              </div>
               <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                One CLI across cloud and local inference. Switch with <code className="rounded bg-[var(--color-surface)]/80 px-1.5 py-0.5 text-[12px]">/provider</code> and <code className="rounded bg-[var(--color-surface)]/80 px-1.5 py-0.5 text-[12px]">/model</code> inside the REPL.
+                One CLI across cloud and local inference. Switch with{" "}
+                <code className="rounded bg-[var(--color-surface)]/80 px-1.5 py-0.5 text-[12px]">
+                  /provider
+                </code>{" "}
+                and{" "}
+                <code className="rounded bg-[var(--color-surface)]/80 px-1.5 py-0.5 text-[12px]">
+                  /model
+                </code>{" "}
+                inside the REPL.
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {providerPills.map((p) => (
-                  <span key={p} className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)] transition-all duration-300 hover:border-orange-400/25 hover:text-orange-600 dark:hover:text-orange-300">{p}</span>
+                  <span
+                    key={p}
+                    className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)] transition-all duration-300 hover:border-orange-400/25 hover:text-orange-600 dark:hover:text-orange-300"
+                  >
+                    {p}
+                  </span>
                 ))}
               </div>
             </div>
@@ -648,17 +880,32 @@ export default function LandingShipItCLISection() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/18 bg-[var(--color-accent)]/8 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
                 <Play size={12} /> Install
               </div>
-              <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/84 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">Node &gt;= 18 &middot; MIT</span>
+              <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/84 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                Node &gt;= 18 &middot; MIT
+              </span>
             </div>
             <div className="mt-4 grid gap-2.5">
               {installMethods.map((m, i) => (
-                <div key={m.title} className="group rounded-[18px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/72 p-3.5 transition-all duration-300 hover:-translate-y-0.5">
+                <div
+                  key={m.title}
+                  className="group rounded-[18px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/72 p-3.5 transition-all duration-300 hover:-translate-y-0.5"
+                >
                   <div className="flex items-center gap-2.5">
-                    <div className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-r ${m.gradient} text-[9px] font-bold text-white`}>0{i + 1}</div>
-                    <span className="text-sm font-semibold text-[var(--color-text-primary)]">{m.title}</span>
-                    <span className="ml-auto rounded-full border border-[var(--color-border)] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">{m.note}</span>
+                    <div
+                      className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-r ${m.gradient} text-[9px] font-bold text-white`}
+                    >
+                      0{i + 1}
+                    </div>
+                    <span className="text-sm font-semibold text-[var(--color-text-primary)]">
+                      {m.title}
+                    </span>
+                    <span className="ml-auto rounded-full border border-[var(--color-border)] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+                      {m.note}
+                    </span>
                   </div>
-                  <div className="mt-2.5 overflow-x-auto rounded-[12px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-3 py-2 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">{m.code}</div>
+                  <div className="mt-2.5 overflow-x-auto rounded-[12px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-3 py-2 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">
+                    {m.code}
+                  </div>
                 </div>
               ))}
             </div>
@@ -694,10 +941,15 @@ export default function LandingShipItCLISection() {
               { cmd: "npm link", note: "Global link" },
             ].map(({ cmd, note }, index) => (
               <div key={cmd} className="group flex items-start gap-2.5">
-                <span className="w-4 shrink-0 pt-0.5 text-right font-mono text-[10px] text-slate-600">{index + 1}</span>
+                <span className="w-4 shrink-0 pt-0.5 text-right font-mono text-[10px] text-slate-600">
+                  {index + 1}
+                </span>
                 <div className="flex-1 rounded-[10px] border border-white/6 bg-white/[0.03] px-3 py-2 transition-all duration-300 group-hover:border-[var(--color-accent)]/15 group-hover:bg-white/[0.05]">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[12px] leading-5 text-slate-300"><span className="text-slate-500">$ </span>{cmd}</span>
+                    <span className="font-mono text-[12px] leading-5 text-slate-300">
+                      <span className="text-slate-500">$ </span>
+                      {cmd}
+                    </span>
                     <span className="text-[10px] text-slate-500">{note}</span>
                   </div>
                 </div>
@@ -712,17 +964,35 @@ export default function LandingShipItCLISection() {
               <WandSparkles size={16} />
             </div>
             <div>
-              <div className="text-sm font-semibold text-[var(--color-text-primary)]">Built for real usage</div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">TypeScript &middot; MIT &middot; Node &gt;= 18</div>
+              <div className="text-sm font-semibold text-[var(--color-text-primary)]">
+                Built for real usage
+              </div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                TypeScript &middot; MIT &middot; Node &gt;= 18
+              </div>
             </div>
           </div>
           <p className="mt-3 text-[13px] leading-6 text-[var(--color-text-secondary)]">
-            Sessions resume, context compacts automatically, full-project scaffolding
-            from zero, and the CLI keeps moving across real coding workflows.
+            Sessions resume, context compacts automatically, full-project
+            scaffolding from zero, and the CLI keeps moving across real coding
+            workflows.
           </p>
           <div className="mt-3 flex flex-wrap gap-1.5">
-            {["Multi-provider", "30 tools", "HITL safety", "Auto-compact", "Image support", "Tab completion", "Rich diffs"].map((tag) => (
-              <span key={tag} className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/88 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">{tag}</span>
+            {[
+              "Multi-provider",
+              "30 tools",
+              "HITL safety",
+              "Auto-compact",
+              "Image support",
+              "Tab completion",
+              "Rich diffs",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/88 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]"
+              >
+                {tag}
+              </span>
             ))}
           </div>
         </div>

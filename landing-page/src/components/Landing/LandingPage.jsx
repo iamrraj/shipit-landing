@@ -1,4 +1,13 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import settingsPng from "./svg/Setting.png";
+import {
+  ArrowRight,
+  Bot,
+  Brain,
+  Cloud,
+  Code2,
+  Gem,
+  Sparkles,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import LandingBackdrop from "./LandingBackdrop";
 import LandingHeader from "./LandingHeader";
@@ -86,8 +95,8 @@ function LandingPageIntro({
   onNavigate,
 }) {
   return (
-    <section className="animate-fade-rise mt-2 rounded-[40px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_28px_60px_-40px_rgba(15,23,42,0.24)] backdrop-blur-xl sm:p-6">
-      <div className="landing-page-hero-shell relative overflow-hidden rounded-[34px] border border-[var(--color-border)] px-5 py-8 sm:px-7 sm:py-9 lg:px-8 lg:py-10">
+    <section className="animate-fade-rise landing-page-hero-shell mt-2 rounded-[40px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_28px_60px_-40px_rgba(15,23,42,0.24)] backdrop-blur-xl sm:p-6">
+      <div className="">
         <div className="landing-page-hero-glow landing-page-hero-glow-a" />
         <div className="landing-page-hero-glow landing-page-hero-glow-b" />
         <div className="landing-page-hero-grid" />
@@ -149,35 +158,119 @@ function LandingPageIntro({
           </div>
         </div>
 
-        <div className="landing-page-hero-stage relative z-10 mx-auto mt-9 max-w-5xl">
-          {highlights.map((item) => (
-            <div key={item} className="landing-page-hero-floating">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                {eyebrow}
-              </div>
-              <div className="mt-1 text-sm font-medium text-[var(--color-text-primary)]">
-                {item}
-              </div>
-            </div>
-          ))}
+        {/* ── Stage with floating cards + screenshot ──── */}
+        <div className="landing-hero-stage-wrap relative z-10 mx-auto mt-9 max-w-6xl">
+          <div className="landing-hero-stage-glow" />
+          <div className="landing-hero-stage-grid" />
 
-          <div className="landing-page-hero-panel mx-auto max-w-3xl rounded-[30px] border border-[var(--color-border)] p-5 sm:p-6">
-            <div
-              className={`grid gap-3 ${highlights.length > 3 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}
-            >
-              {highlights.map((item, index) => (
-                <div
-                  key={`${item}-${index}`}
-                  className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-4"
-                >
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-                    {String(index + 1).padStart(2, "0")}
+          {(pageId === "engines"
+            ? [
+                {
+                  className: "landing-hero-floating-a",
+                  title: "4 Engines",
+                  label: "One unified interface",
+                  icon: Bot,
+                  color: "from-blue-500 to-indigo-600",
+                },
+                {
+                  className: "landing-hero-floating-b",
+                  title: "100+ Models",
+                  label: "Switch without config",
+                  icon: Sparkles,
+                  color: "from-violet-500 to-purple-600",
+                },
+                {
+                  className: "landing-hero-floating-c",
+                  title: "9 Providers",
+                  label: "Route across clouds",
+                  icon: Cloud,
+                  color: "from-cyan-400 to-teal-500",
+                },
+                {
+                  className: "landing-hero-floating-d",
+                  title: "Settings UI",
+                  label: "Visual engine control",
+                  icon: Gem,
+                  color: "from-orange-500 to-amber-500",
+                },
+              ]
+            : [
+                {
+                  className: "landing-hero-floating-a",
+                  title: highlights[0] || "Step 1",
+                  label: eyebrow,
+                  icon: Sparkles,
+                  color: "from-purple-500 to-violet-600",
+                },
+                {
+                  className: "landing-hero-floating-b",
+                  title: highlights[1] || "Step 2",
+                  label: eyebrow,
+                  icon: Code2,
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  className: "landing-hero-floating-c",
+                  title: highlights[2] || "Step 3",
+                  label: eyebrow,
+                  icon: Gem,
+                  color: "from-cyan-400 to-teal-500",
+                },
+                {
+                  className: "landing-hero-floating-d",
+                  title: highlights[3] || "Step 4",
+                  label: eyebrow,
+                  icon: Cloud,
+                  color: "from-orange-500 to-amber-500",
+                },
+              ]
+          ).map((card) => {
+            const CardIcon = card.icon;
+            return (
+              <div
+                key={card.title}
+                className={`landing-hero-floating ${card.className}`}
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br ${card.color} text-white shadow-sm`}
+                  >
+                    <CardIcon size={13} />
                   </div>
-                  <div className="mt-2 text-sm font-semibold text-[var(--color-text-primary)]">
-                    {item}
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                    {card.title}
                   </div>
                 </div>
-              ))}
+                <div className="mt-1.5 text-sm font-medium text-[var(--color-text-primary)]">
+                  {card.label}
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="landing-hero-frame mx-auto max-w-4xl">
+            <div className="landing-hero-screen">
+              <div className="landing-hero-screen-top">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                </div>
+                <div className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  {pageId === "engines"
+                    ? "Engine configuration"
+                    : "Live operator surface"}
+                </div>
+              </div>
+              <div className="relative">
+                <div className="landing-hero-screen-glow" />
+                <img
+                  src={settingsPng}
+                  alt="ShipIt Settings — engine and workspace configuration"
+                  className="relative z-10 w-full rounded-[22px] object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>

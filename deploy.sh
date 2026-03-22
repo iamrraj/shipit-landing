@@ -7,10 +7,10 @@
 #    ssh server 'bash /opt/shipit/deploy.sh'
 #
 #  After deploy:
-#    - Landing page: https://shipit.dev
-#    - API:          https://shipit.dev/api/
-#    - Admin:        https://shipit.dev/admin/
-#    - Installer:    curl -fsSL https://shipit.dev/install.sh | bash
+#    - Landing page: https://shipiit.com
+#    - API:          https://shipiit.com/api/
+#    - Admin:        https://shipiit.com/admin/
+#    - Installer:    curl -fsSL https://shipiit.com/install.sh | bash
 # ============================================================
 
 set -euo pipefail
@@ -68,8 +68,8 @@ fi
 
 # ── 7. Nginx ────────────────────────────────────────────
 log "Configuring nginx..."
-cp "$APP_DIR/nginx/nginx.conf" /etc/nginx/sites-available/shipit.dev
-ln -sf /etc/nginx/sites-available/shipit.dev /etc/nginx/sites-enabled/
+cp "$APP_DIR/nginx/nginx.conf" /etc/nginx/sites-available/shipiit.com
+ln -sf /etc/nginx/sites-available/shipiit.com /etc/nginx/sites-enabled/
 rm -f /etc/nginx/sites-enabled/default
 
 nginx -t && systemctl reload nginx
@@ -83,19 +83,19 @@ systemctl restart shipit-api
 
 # ── 9. SSL (Let's Encrypt) ──────────────────────────────
 log "Setting up SSL..."
-certbot --nginx -d shipit.dev -d www.shipit.dev --non-interactive --agree-tos --redirect --email admin@shipit.dev || {
+certbot --nginx -d shipiit.com -d www.shipiit.com --non-interactive --agree-tos --redirect --email admin@shipiit.com || {
     echo -e "${CYAN}[deploy]${NC} SSL setup skipped — run manually:"
-    echo "  certbot --nginx -d shipit.dev -d www.shipit.dev"
+    echo "  certbot --nginx -d shipiit.com -d www.shipiit.com"
 }
 
 # ── Done ────────────────────────────────────────────────
 echo ""
 echo -e "${GREEN}${BOLD}Deploy complete!${NC}"
 echo ""
-echo -e "  ${BOLD}Landing page:${NC}  ${CYAN}https://shipit.dev${NC}"
-echo -e "  ${BOLD}API:${NC}           ${CYAN}https://shipit.dev/api/${NC}"
-echo -e "  ${BOLD}Admin:${NC}         ${CYAN}https://shipit.dev/admin/${NC}"
-echo -e "  ${BOLD}Installer:${NC}     ${CYAN}curl -fsSL https://shipit.dev/install.sh | bash${NC}"
+echo -e "  ${BOLD}Landing page:${NC}  ${CYAN}https://shipiit.com${NC}"
+echo -e "  ${BOLD}API:${NC}           ${CYAN}https://shipiit.com/api/${NC}"
+echo -e "  ${BOLD}Admin:${NC}         ${CYAN}https://shipiit.com/admin/${NC}"
+echo -e "  ${BOLD}Installer:${NC}     ${CYAN}curl -fsSL https://shipiit.com/install.sh | bash${NC}"
 echo ""
 echo -e "  ${BOLD}Manage:${NC}"
 echo "    systemctl status shipit-api     # check status"

@@ -1,3 +1,4 @@
+import enginePng from "../svg/Engine.png";
 import { Brain, Cloud, Code2, Gem, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
 import LandingSectionHeader from "../LandingSectionHeader";
@@ -37,7 +38,12 @@ const engineStats = [
 
 export default function LandingEnginesSection() {
   const orderedEngines = useMemo(() => {
-    const order = ["ShipIt CLI", "Claude Code CLI", "OpenAI Codex CLI", "Google Gemini CLI"];
+    const order = [
+      "ShipIt CLI",
+      "Claude Code CLI",
+      "OpenAI Codex CLI",
+      "Google Gemini CLI",
+    ];
     return [...supportedEngines].sort(
       (a, b) => order.indexOf(a.name) - order.indexOf(b.name),
     );
@@ -45,7 +51,8 @@ export default function LandingEnginesSection() {
 
   const [activeName, setActiveName] = useState("ShipIt CLI");
   const activeEngine =
-    orderedEngines.find((engine) => engine.name === activeName) ?? orderedEngines[0];
+    orderedEngines.find((engine) => engine.name === activeName) ??
+    orderedEngines[0];
   const ActiveIcon = engineIcons[activeEngine.name] ?? Sparkles;
   const [topRef, topVisible] = useScrollReveal();
   const [bottomRef, bottomVisible] = useScrollReveal();
@@ -60,49 +67,71 @@ export default function LandingEnginesSection() {
         />
       </div>
 
+      {/* ── Settings screenshot hero with overflow ──── */}
       <div
         ref={topRef}
-        className={`scroll-reveal mt-7 rounded-[38px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:p-6 ${topVisible ? "is-visible" : ""}`}
+        className={`scroll-reveal relative mt-7 overflow-hidden rounded-[38px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl ${topVisible ? "is-visible" : ""}`}
       >
-        <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr]">
-          <div className="grid content-start gap-4">
-            <div className="landing-stage-card rounded-[32px] border border-[var(--color-accent)]/18 p-5 shadow-[0_24px_50px_-36px_rgba(37,99,235,0.18)]">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/22 bg-[var(--color-accent)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
-                  <Sparkles size={12} />
-                  Engine comparison
-                </div>
-                <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/84 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-                  ShipIt shown first
-                </div>
+        <div className="relative z-10 grid gap-0 xl:grid-cols-[1fr_1.15fr]">
+          {/* Left: text + stats */}
+          <div className="p-6 sm:p-8 xl:py-10 xl:pl-8 xl:pr-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/22 bg-[var(--color-accent)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                <Sparkles size={12} />
+                Engine comparison
               </div>
-
-              <div className="mt-4 text-2xl font-semibold leading-tight text-[var(--color-text-primary)]">
-                Pick the right engine for the job without changing the UI.
-              </div>
-              <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-                Keep one clean workspace on top, then switch between ShipIt,
-                Claude, Codex, and Gemini depending on whether you want provider
-                flexibility, deeper reasoning, faster code generation, or multimodal capabilities.
-              </p>
-
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                {engineStats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 p-4"
-                  >
-                    <div className="font-display text-2xl font-semibold text-[var(--color-text-primary)]">
-                      {item.value}
-                    </div>
-                    <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
-                      {item.label}
-                    </div>
-                  </div>
-                ))}
+              <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/84 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                ShipIt shown first
               </div>
             </div>
 
+            <h3 className="mt-5 text-3xl font-semibold leading-[1.1] text-[var(--color-text-primary)] lg:text-[2.4rem]">
+              Pick the right engine for the job
+              <span className="animate-gradient-shimmer mt-1 block bg-[linear-gradient(135deg,var(--color-accent),#0ea5e9,#10b981,#6366F1,var(--color-accent))] bg-clip-text text-transparent">
+                without changing the UI.
+              </span>
+            </h3>
+            <p className="mt-4 max-w-lg text-sm leading-7 text-[var(--color-text-secondary)]">
+              Keep one clean workspace on top, then switch between ShipIt,
+              Claude, Codex, and Gemini depending on whether you want provider
+              flexibility, deeper reasoning, faster code generation, or
+              multimodal capabilities.
+            </p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {engineStats.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 p-4"
+                >
+                  <div className="font-display text-2xl font-semibold text-[var(--color-text-primary)]">
+                    {item.value}
+                  </div>
+                  <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Settings screenshot with overflow */}
+          <div className="relative flex items-end justify-end overflow-hidden xl:min-h-[420px]">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-surface)_0%,transparent_20%)] z-10 pointer-events-none hidden xl:block" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-surface)_0%,transparent_16%)] z-10 pointer-events-none" />
+            <img
+              src={enginePng}
+              alt="ShipIt Settings — engine selection UI"
+              className="relative w-full xl:absolute xl:left-4 xl:top-8 xl:w-[115%] xl:max-w-none rounded-tl-2xl rounded-tr-2xl xl:rounded-tr-none border border-[var(--color-border)] xl:border-r-0 xl:border-b-0 shadow-[0_-20px_60px_-20px_rgba(15,23,42,0.4)]"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ── Engine selectors + detail panel ──── */}
+      <div className="mt-5 rounded-[38px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:p-6">
+        <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr]">
+          <div className="grid content-start gap-4">
             <div className="grid gap-3">
               {orderedEngines.map((engine, index) => {
                 const Icon = engineIcons[engine.name] ?? Sparkles;
@@ -122,7 +151,9 @@ export default function LandingEnginesSection() {
                           <Icon size={18} />
                         </div>
                         <div>
-                          <div className={`text-base font-semibold ${engine.color}`}>
+                          <div
+                            className={`text-base font-semibold ${engine.color}`}
+                          >
                             {engine.name}
                           </div>
                           <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
@@ -174,7 +205,9 @@ export default function LandingEnginesSection() {
                           ? "Multimodal mode"
                           : "Code generation mode"}
                   </div>
-                  <div className={`mt-2 text-3xl font-semibold ${activeEngine.color}`}>
+                  <div
+                    className={`mt-2 text-3xl font-semibold ${activeEngine.color}`}
+                  >
                     {activeEngine.name}
                   </div>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
@@ -192,7 +225,8 @@ export default function LandingEnginesSection() {
                           "Keep the same UI while changing engine strengths.",
                           "Use the best engine for the current task instead of forcing one model.",
                           "Stay inside one modern workspace while routing work differently.",
-                        ]).map((item) => (
+                        ]
+                    ).map((item) => (
                       <div
                         key={item}
                         className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/76 px-4 py-3 text-sm leading-6 text-[var(--color-text-secondary)]"
@@ -233,7 +267,9 @@ export default function LandingEnginesSection() {
 
                 <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 p-4">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
-                    {activeEngine.providers ? "Provider matrix" : "Recommended models"}
+                    {activeEngine.providers
+                      ? "Provider matrix"
+                      : "Recommended models"}
                   </div>
 
                   <div className="mt-3 grid gap-3">
@@ -244,7 +280,10 @@ export default function LandingEnginesSection() {
                           models: activeEngine.desc,
                         }))
                     ).map((item) => (
-                      <div key={item.name} className="landing-engine-provider-card">
+                      <div
+                        key={item.name}
+                        className="landing-engine-provider-card"
+                      >
                         <div className="text-sm font-semibold text-[var(--color-text-primary)]">
                           {item.name}
                         </div>

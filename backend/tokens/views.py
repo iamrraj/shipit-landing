@@ -6,11 +6,19 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from analytics.models import ActiveUser
 from .emails import send_token_activated
 from .models import Token
 from .serializers import TokenSerializer
 
 logger = logging.getLogger(__name__)
+
+
+def _get_client_ip(request):
+    forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.META.get("REMOTE_ADDR")
 
 
 @api_view(["POST"])
@@ -30,6 +38,26 @@ def validate_token(request):
             {"valid": False, "error": "Token not found."},
             status=status.HTTP_404_NOT_FOUND,
         )
+
+    # Track active usage
+    if token.is_valid:
+        try:
+            user, created = ActiveUser.objects.get_or_create(
+                token_key=key,
+                defaults={
+                    "user_email": token.user.email if token.user else "",
+                    "user_name": token.user.get_full_name() if token.user else "",
+                    "ip_address": _get_client_ip(request),
+                    "platform": request.data.get("platform", ""),
+                    "app_version": request.data.get("app_version", ""),
+                },
+            )
+            if not created:
+                user.ip_address = _get_client_ip(request)
+                user.total_sessions += 1
+                user.save(update_fields=["ip_address", "total_sessions", "last_seen"])
+        except Exception:
+            logger.debug("Failed to track active user", exc_info=True)
 
     serializer = TokenSerializer(token)
     return Response(

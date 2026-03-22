@@ -21,12 +21,12 @@ export default function DocsGettingStarted() {
         One command downloads, extracts, and installs everything. This is the recommended path for end users.
       </p>
       <CodeBlock>{`# Mac / Linux — one-line install
-curl -fsSL https://shipit.dev/install.sh | bash
+curl -fsSL https://shipiit.com/install.sh | bash
 
 # Launch ShipIt
 shipit`}</CodeBlock>
       <p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">
-        On Windows, download the release from shipit.dev and run <code className="rounded bg-[var(--color-bg-secondary)] px-1.5 py-0.5 text-xs font-mono">.\\install.ps1</code> in PowerShell.
+        On Windows, download the release from shipiit.com and run <code className="rounded bg-[var(--color-bg-secondary)] px-1.5 py-0.5 text-xs font-mono">.\\install.ps1</code> in PowerShell.
       </p>
 
       <h4 className="mt-7 text-lg font-semibold text-[var(--color-text-primary)]">Developer Setup</h4>

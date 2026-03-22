@@ -27,10 +27,34 @@ const heroSignals = [
 ];
 
 const engineStrip = [
-  { name: "ShipIt", role: "Personal multi-provider CLI", icon: Cloud, color: "from-orange-500 to-amber-500", glow: "shadow-orange-500/20" },
-  { name: "Claude", role: "Reasoning", icon: Brain, color: "from-purple-500 to-violet-600", glow: "shadow-purple-500/20" },
-  { name: "Codex", role: "Code generation", icon: Code2, color: "from-blue-500 to-cyan-500", glow: "shadow-blue-500/20" },
-  { name: "Gemini", role: "Multimodal", icon: Gem, color: "from-cyan-400 to-teal-500", glow: "shadow-cyan-500/20" },
+  {
+    name: "ShipIt",
+    role: "Personal multi-provider CLI",
+    icon: Cloud,
+    color: "from-orange-500 to-amber-500",
+    glow: "shadow-orange-500/20",
+  },
+  {
+    name: "Claude",
+    role: "Reasoning",
+    icon: Brain,
+    color: "from-purple-500 to-violet-600",
+    glow: "shadow-purple-500/20",
+  },
+  {
+    name: "Codex",
+    role: "Code generation",
+    icon: Code2,
+    color: "from-blue-500 to-cyan-500",
+    glow: "shadow-blue-500/20",
+  },
+  {
+    name: "Gemini",
+    role: "Multimodal",
+    icon: Gem,
+    color: "from-cyan-400 to-teal-500",
+    glow: "shadow-cyan-500/20",
+  },
 ];
 
 const heroCommandPills = [
@@ -144,8 +168,8 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
             </div>
             <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
               <span className="inline-flex items-center gap-1.5">
-                <Zap size={10} className="text-amber-500" />
-                4 engines. 100+ models. One control surface.
+                <Zap size={10} className="text-amber-500" />4 engines. 100+
+                models. One control surface.
               </span>
             </div>
           </div>
@@ -159,7 +183,10 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
                   className="animate-fade-rise inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/94 px-3.5 py-1.5 text-[12px] font-medium text-[var(--color-text-secondary)] shadow-sm transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-[0_8px_20px_-10px_rgba(37,99,235,0.15)]"
                   style={{ animationDelay: `${150 + index * 100}ms` }}
                 >
-                  <SignalIcon size={13} className="text-[var(--color-accent)]" />
+                  <SignalIcon
+                    size={13}
+                    className="text-[var(--color-accent)]"
+                  />
                   {item.text}
                 </span>
               );
@@ -189,7 +216,9 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
                   className={`animate-fade-rise group relative flex items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/90 px-4 py-3 shadow-lg ${item.glow} backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-accent)]/30 hover:shadow-xl`}
                   style={{ animationDelay: `${260 + index * 110}ms` }}
                 >
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${item.color} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
+                  <div
+                    className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${item.color} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}
+                  >
                     <EngineIcon size={17} />
                   </div>
                   <div className="flex flex-col">
@@ -241,7 +270,10 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
                   <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[var(--color-accent)]/10 text-[var(--color-accent)] transition-colors group-hover:bg-[var(--color-accent)]/20">
                     <PillIcon size={11} />
                   </span>
-                  <Command size={11} className="text-[var(--color-text-muted)]" />
+                  <Command
+                    size={11}
+                    className="text-[var(--color-text-muted)]"
+                  />
                   {pill.cmd}
                 </span>
               );
@@ -261,7 +293,9 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
                 className={`landing-hero-floating ${card.className}`}
               >
                 <div className="flex items-center gap-2">
-                  <div className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br ${card.color} text-white shadow-sm`}>
+                  <div
+                    className={`flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br ${card.color} text-white shadow-sm`}
+                  >
                     <CardIcon size={13} />
                   </div>
                   <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
@@ -311,12 +345,18 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
                 return (
                   <div key={item.label} className="flex items-center gap-2">
                     <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/82 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)] transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:text-[var(--color-accent)]">
-                      <FlowIcon size={11} className="text-[var(--color-accent)]/70" />
+                      <FlowIcon
+                        size={11}
+                        className="text-[var(--color-accent)]/70"
+                      />
                       {item.label}
                     </span>
                     {index < heroFlow.length - 1 && (
                       <span className="flex items-center">
-                        <ArrowRight size={12} className="text-[var(--color-accent)]/40" />
+                        <ArrowRight
+                          size={12}
+                          className="text-[var(--color-accent)]/40"
+                        />
                       </span>
                     )}
                   </div>

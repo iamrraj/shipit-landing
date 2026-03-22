@@ -6,14 +6,14 @@ export default function DocsLicense() {
     <div>
       <h3 className="text-2xl font-semibold text-[var(--color-text-primary)]">License Activation</h3>
       <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-        ShipIt requires a valid license token to operate. Tokens are issued through your dashboard at shipit.dev
+        ShipIt requires a valid license token to operate. Tokens are issued through your dashboard at shipiit.com
         and validated against the license server on first use and periodically thereafter.
       </p>
 
       <h4 className="mt-7 text-lg font-semibold text-[var(--color-text-primary)]">Activation Flow</h4>
       <div className="mt-3 grid gap-3 sm:grid-cols-3">
         {[
-          { icon: Globe, title: "1. Get Token", desc: "Sign in at shipit.dev, go to Dashboard, and copy your license token." },
+          { icon: Globe, title: "1. Get Token", desc: "Sign in at shipiit.com, go to Dashboard, and copy your license token." },
           { icon: Terminal, title: "2. Enter Token", desc: "Paste the token when prompted on first launch, or use the activation UI in the browser." },
           { icon: Shield, title: "3. Validated", desc: "Token is validated remotely and cached locally. Re-validation happens every 6 hours." },
         ].map(({ icon: Icon, title, desc }) => (
