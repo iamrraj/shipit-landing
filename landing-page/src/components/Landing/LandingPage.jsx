@@ -23,6 +23,8 @@ import LandingPipelineSection from "./sections/LandingPipelineSection";
 import LandingQuickStartSection from "./sections/LandingQuickStartSection";
 import LandingDocsSection from "./sections/LandingDocsSection";
 import LandingShipItCLISection from "./sections/LandingShipItCLISection";
+import LandingFeaturesShowcase from "./sections/LandingFeaturesShowcase";
+import LandingUseCaseTabs from "./sections/LandingUseCaseTabs";
 
 const landingPages = [
   {
@@ -32,7 +34,7 @@ const landingPages = [
     title: "A cleaner entry point into ShipIt.",
     desc: "Start with the product story and core value before going deeper into engines, workflow, and setup.",
     highlights: ["Product story", "Core value", "Modern UI"],
-    sections: [LandingHeroSection, LandingBenefitsSection],
+    sections: [LandingHeroSection, LandingFeaturesShowcase, LandingUseCaseTabs, LandingBenefitsSection],
   },
   {
     id: "shipit",
@@ -40,7 +42,7 @@ const landingPages = [
     eyebrow: "ShipIt CLI",
     title: "The terminal-native AI coding agent on your own models.",
     desc: "Start with ShipIt itself: what it is, why it stands out, how it installs, and why it is the strongest option when you want provider freedom.",
-    highlights: ["Own models", "30+ tools", "Terminal-native", "Local-first"],
+    highlights: ["Own models", "40+ tools", "Terminal-native", "Local-first"],
     sections: [LandingShipItCLISection],
   },
   {

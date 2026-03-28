@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { heroStats, offerGroups } from "../data";
 import useScrollReveal from "../useScrollReveal";
+import HeroBackground from "../svg/HeroBackground";
 
 const heroSignals = [
   { text: "Repo-aware before editing", icon: ScanSearch },
@@ -152,6 +153,8 @@ export default function LandingHeroSection({ onJoinWaitlist, onNavigate }) {
   return (
     <section className="mt-2">
       <div className="landing-hero-shell animate-fade-rise relative overflow-hidden rounded-[44px] border border-[var(--color-border)] bg-[var(--color-surface)]/88 px-5 py-8 shadow-[0_34px_80px_-48px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:px-7 sm:py-9 lg:px-10 lg:py-10">
+        {/* Animated SVG background */}
+        <HeroBackground />
         <div className="landing-hero-beam" />
         <div className="landing-hero-grid" />
         <div className="landing-hero-orb landing-hero-orb-a" />

@@ -25,75 +25,91 @@ import {
 } from "lucide-react";
 
 export const heroStats = [
-  { value: "11", label: "structured pipeline steps" },
-  { value: "28+", label: "MCP integrations and presets" },
-  { value: "329 + 207", label: "backend and frontend tests" },
-  { value: "4", label: "AI engines with fallback support" },
+  { value: "4", label: "AI engines with 100+ models" },
+  { value: "40+", label: "built-in developer tools" },
+  { value: "17", label: "workflow step types" },
+  { value: "30+", label: "MCP integrations" },
 ];
 
 export const offerGroups = [
   {
     icon: Bot,
-    title: "AI execution",
-    desc: "Claude Code CLI, OpenAI Codex CLI, Google Gemini CLI, and ShipIt (multi-provider: Bedrock, OpenAI, Gemini, Ollama, Groq, and more) with full codebase context and multi-file editing.",
+    title: "Multi-Engine AI",
+    desc: "Claude Code, OpenAI Codex, Google Gemini, and ShipIt CLI (Bedrock, OpenAI, Ollama, Groq, Together, OpenRouter) — switch engines and models with one click.",
+  },
+  {
+    icon: Shield,
+    title: "Security Scanner & Pentesting",
+    desc: "Deep vulnerability scanning with Bandit, Semgrep, SAST, SCA, secret detection, license compliance, container scanning, and AI-powered penetration testing with OWASP 2025 coverage.",
   },
   {
     icon: Workflow,
-    title: "Structured orchestration",
-    desc: "A production pipeline handles parsing, validation, implementation, review, fixes, tests, commits, and reporting.",
-  },
-  {
-    icon: GitBranchPlus,
-    title: "Git-safe shipping",
-    desc: "Local-only by default, with feature branches, optional push and PR creation when you explicitly enable it.",
+    title: "Visual Workflow Builder",
+    desc: "30+ templates, 17 step types, drag-and-drop builder, AI prompt generation, auto-save, and live SSE execution with real-time progress tracking.",
   },
   {
     icon: Plug,
-    title: "Connected tooling",
-    desc: "MCP servers, GitHub, Slack, Discord, Linear, databases, browser tooling, and more from one interface.",
+    title: "Full-Stack Tooling",
+    desc: "Database explorer (PostgreSQL, MySQL, SQLite), GitHub issues with AI fix, Playwright web research, scheduled pipelines, Slack/Discord notifications, Langfuse observability, and 30+ MCP integrations.",
   },
 ];
 
 export const featureCards = [
   {
     icon: TerminalSquare,
-    title: "Chat Interface",
-    desc: "Real-time SSE streaming, session continuity, inline file previews, diff viewing, uploads, @mentions, and multi-project paths.",
+    title: "AI Chat Interface",
+    desc: "Real-time SSE streaming with tool call visualization, expandable file previews, syntax-highlighted diffs, markdown rendering, and multi-project support.",
+    image: "/screenshots/Menu.png",
   },
   {
-    icon: Command,
-    title: "Slash Commands",
-    desc: "/review, /test, /fix, /rollback, /explain, /pr, /search, /changelog, and /docs for fast operator workflows.",
-  },
-  {
-    icon: Sparkles,
-    title: "Prompt Templates",
-    desc: "Reusable task blueprints for backend, frontend, testing, security, refactors, and full-stack work.",
-  },
-  {
-    icon: Github,
-    title: "Repo Operations",
-    desc: "Paste a GitHub URL, clone the repository, work against branches, and keep repo access inside the same flow.",
+    icon: Shield,
+    title: "Vulnerability Scanner",
+    desc: "Aikido-style security dashboard with SAST (Bandit + Semgrep), SCA, secret detection, license compliance, container scanning, and AI deep analysis.",
+    image: "/screenshots/Scan.png",
   },
   {
     icon: ScanSearch,
-    title: "Review + Security",
-    desc: "Quality review, bug detection, OWASP-oriented scanning, and optional Aikido-backed checks.",
+    title: "Penetration Testing",
+    desc: "18 injection patterns, auth/session analysis, SSL/TLS checks, infrastructure scanning, and AI-powered deep pentest with exploitation scenarios.",
+    image: "/screenshots/Pentesting.png",
+  },
+  {
+    icon: Workflow,
+    title: "Visual Workflows",
+    desc: "30+ templates, 17 step types, drag-and-drop builder, auto-save, AI prompt generation, and live execution with real-time progress.",
+    image: "/screenshots/Worlfow.png",
+  },
+  {
+    icon: Command,
+    title: "Slash Commands & OSINT",
+    desc: "/osint for Telegram & dark web research, /pentest, /scan, /review, /test, /fix, /pr, /search — all from the chat input.",
+  },
+  {
+    icon: Github,
+    title: "GitHub Integration",
+    desc: "Browse repos, connect organizations, fetch issues with security alerts, AI auto-fix with PR creation, and Dependabot integration.",
+    image: "/screenshots/Project.png",
   },
   {
     icon: TestTube2,
-    title: "Test Automation",
-    desc: "Supports pytest, Jest, Vitest, Go, Cargo, and framework-aware test execution based on detected project shape.",
+    title: "Test & Review Automation",
+    desc: "Smart pipeline: detects questions vs implementation, skips unnecessary steps, auto-reviews code, and runs framework-aware tests.",
   },
   {
     icon: BellRing,
-    title: "Notifications",
-    desc: "Slack Block Kit and Discord webhook summaries keep the team informed when tasks finish or fail.",
+    title: "Notifications & Observability",
+    desc: "Slack Block Kit + Discord notifications, Langfuse tracking for all AI calls, real cost dashboard, and scheduled pipeline automation.",
+  },
+  {
+    icon: Sparkles,
+    title: "Workflow Templates",
+    desc: "QA, Social Media, Sales Lead, DevOps, Incident Response, Codebase Audit — pre-built combos for every team.",
+    image: "/screenshots/CreateWorkflow.png",
   },
   {
     icon: MonitorCog,
-    title: "Dark + Light UI",
-    desc: "Theme-aware interface with a modern React + Zustand + Tailwind frontend and live activity visibility.",
+    title: "Modern Developer UI",
+    desc: "Dark + light themes, searchable model dropdowns, directory browser, session sharing, team collaboration, and keyboard-first design.",
   },
 ];
 
@@ -167,22 +183,22 @@ export const architectureLayers = [
   {
     icon: Eye,
     title: "React + Vite frontend",
-    desc: "Chat UI, Zustand state, settings, session management, diff viewers, and streaming output.",
+    desc: "Chat with tool visualization, security dashboard, workflow builder, database explorer, issue tracker, cost dashboard, and activity feed.",
   },
   {
     icon: Braces,
-    title: "FastAPI + SSE bridge",
-    desc: "REST endpoints for sessions, settings, uploads, integrations, and live pipeline events.",
+    title: "FastAPI + SSE backend",
+    desc: "100+ REST endpoints, real-time SSE streaming, workflow executor, security scanner, pentest engine, web research, and Langfuse tracking.",
   },
   {
     icon: Layers3,
-    title: "Pipeline engines",
-    desc: "TaskParser, ProjectDetector, CodeEngine (Claude, Codex, Gemini, ShipIt), CodeReviewer, AutoFixer, TestRunner, and ReportGenerator.",
+    title: "AI engine layer",
+    desc: "CodeEngine (Claude, Codex, Gemini, ShipIt), CodeReviewer, SecurityScanner, PentestEngine, WorkflowExecutor, and WebResearcher.",
   },
   {
     icon: Shield,
-    title: "Clients and integrations",
-    desc: "Git, Slack, Discord, Aikido, MCP servers, and external services wired into a single delivery flow.",
+    title: "Integrations & tools",
+    desc: "Git, GitHub, Slack, Discord, Langfuse, MCP servers, Playwright, Bandit, Semgrep, PostgreSQL, MySQL, SQLite, and scheduled pipelines.",
   },
 ];
 

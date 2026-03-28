@@ -1,4 +1,5 @@
 import shipitCliPng from "../svg/shipit_cli.png";
+import ShipItToolsOrbitSvg from "../svg/ShipItToolsOrbitSvg";
 import {
   ArrowRight,
   BadgeCheck,
@@ -29,16 +30,16 @@ import useScrollReveal from "../useScrollReveal";
 /* ─── data ─── */
 
 const heroSignals = [
-  "Your own provider layer",
-  "Terminal-native coding flow",
-  "Local or cloud model routing",
+  "One-man-army autonomous AI agent",
+  "Full terminal access + OSINT research",
+  "Local or cloud — your models, your rules",
 ];
 
 const heroStats = [
-  { value: "9", label: "provider routes" },
-  { value: "30", label: "built-in tools" },
-  { value: "100%", label: "local run option" },
-  { value: "HITL", label: "safety mode" },
+  { value: "9+", label: "AI providers" },
+  { value: "43", label: "built-in tools" },
+  { value: "OSINT", label: "research suite" },
+  { value: "HITL", label: "smart safety" },
 ];
 
 const providerPills = [
@@ -61,29 +62,31 @@ const commandPills = [
   "/session",
   "/tools",
   "/hitl",
-  "/plan",
+  "/osint",
+  "/pentest",
+  "/scan",
 ];
 
 const whyShipIt = [
   {
     icon: Cloud,
-    title: "Your models, your routing",
-    desc: "Bedrock, OpenAI, Gemini, Ollama, Vertex, Together, Groq, OpenRouter, and custom APIs — one CLI.",
+    title: "Your models, your rules",
+    desc: "AWS Bedrock, OpenAI, Gemini, Vertex AI, Ollama, Together, Groq, OpenRouter — bring any model.",
   },
   {
     icon: Terminal,
-    title: "Terminal-native by design",
-    desc: "Interactive REPL, one-shot mode, slash commands, setup flows, and shell-native workflows.",
+    title: "One-man-army agent",
+    desc: "Developer, DevOps, security researcher, pentester, sysadmin — entire engineering team in one CLI.",
   },
   {
     icon: FolderSearch2,
-    title: "Inspect first, then edit",
-    desc: "Inspect files, repos, archives deeply before writing. Verify with tests, lint, or security scans.",
+    title: "Deep code tracing",
+    desc: "Reads 5-10+ files per question. Follows imports, maps architecture, cross-references components.",
   },
   {
     icon: ShieldCheck,
-    title: "Safer execution model",
-    desc: "Safe reads auto-approve. Writes, deletes, and shell execution stay behind HITL approval.",
+    title: "OSINT & threat intel",
+    desc: "Telegram scraping, dark web search, IP reputation, breach checks, Google dorking — built-in.",
   },
 ];
 
@@ -132,33 +135,33 @@ const localRunCards = [
 const featureCards = [
   {
     icon: Layers3,
-    title: "40 + built-in tools",
-    desc: "Files, search, archives, bash, git, tests, Docker, security, code intelligence.",
+    title: "43 built-in tools",
+    desc: "Files, bash, git, GitHub, Docker, security, OSINT, web search, code intel, pentest, malware analysis.",
   },
   {
-    icon: Command,
-    title: "Slash commands",
-    desc: "/model, /provider, /session, /tokens, /tools, /hitl, /plan, /compact.",
+    icon: ShieldCheck,
+    title: "OSINT & threat intel",
+    desc: "Telegram scraping, dark web search, IP reputation, cert transparency, breach checks, Google dorking.",
   },
   {
     icon: Lock,
-    title: "HITL safety",
-    desc: "Approve once, for session, edit inputs, or deny. Safe reads auto-approve.",
+    title: "Claude Code-style HITL",
+    desc: "Arrow-key menu approval. 150+ auto-approved safe commands. 50+ dangerous patterns blocked.",
   },
   {
-    icon: RefreshCw,
-    title: "Sessions",
-    desc: "Save, resume, rename. Auto-compact when context fills up.",
+    icon: Zap,
+    title: "Parallel execution",
+    desc: "Up to 5 tools run concurrently. Circuit breaker, exponential backoff, rate limit recovery.",
   },
   {
     icon: Image,
-    title: "Multi-modal",
-    desc: "Attach PNG, JPG, GIF, WebP for vision-capable model conversations.",
+    title: "Multi-modal + MCP",
+    desc: "Paste images, connect Playwright, databases, APIs via MCP (stdio, SSE, HTTP, WebSocket).",
   },
   {
     icon: Monitor,
-    title: "Rich display",
-    desc: "Inline diffs, file previews, color-coded output, progress bars.",
+    title: "Deep code tracing",
+    desc: "Reads 5-10+ files per question. Follows imports, cross-references architecture layers.",
   },
 ];
 
@@ -170,41 +173,41 @@ const toolCategories = [
       "read_file",
       "write_file",
       "edit_file",
-      "inspect_path",
       "search_files",
+      "list_dir",
     ],
   },
   {
     icon: ServerCog,
-    title: "Shell & system",
+    title: "Shell & DevOps",
     tools: [
       "bash_exec",
-      "run_tests",
       "git_ops",
+      "github_ops",
       "docker_ops",
-      "package_install",
+      "run_tests",
     ],
   },
   {
     icon: ShieldCheck,
-    title: "Security",
+    title: "Security & pentest",
     tools: [
+      "security_audit",
       "vuln_scan",
       "secrets_scan",
-      "security_audit",
-      "ssl_check",
-      "port_scan",
+      "xss_scan",
+      "sqli_test",
     ],
   },
   {
     icon: Bot,
-    title: "Code intel",
+    title: "OSINT & research",
     tools: [
-      "code_analyze",
-      "code_explain",
-      "project_info",
+      "osint_search",
+      "web_search",
       "web_fetch",
-      "binary_inspect",
+      "subdomain_enum",
+      "port_scan",
     ],
   },
 ];
@@ -277,7 +280,7 @@ function DetailCarousel({ detailRef, detailVisible }) {
               Deep Dive
             </div>
             <div className="mt-3 text-2xl font-semibold leading-tight text-[var(--color-text-primary)]">
-              Local inference, key features, and 40 + tools — without the
+              Local inference, key features, and 43 tools — without the
               scroll.
             </div>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
@@ -472,14 +475,14 @@ function DetailCarousel({ detailRef, detailVisible }) {
                   <div className="flex items-center justify-between gap-3">
                     <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-500/8 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-300">
                       <Layers3 size={12} />
-                      40 + Built-in Tools
+                      43 Built-in Tools
                     </div>
                     <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
                       4 categories
                     </div>
                   </div>
                   <div className="mt-3 text-2xl font-semibold text-[var(--color-text-primary)]">
-                    Files, shell, security, code intel.
+                    Files, shell, security, OSINT, code intel.
                   </div>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                     Read, write, search, execute, scan, and analyze — all
@@ -577,7 +580,7 @@ export default function LandingShipItCLISection() {
               ShipIt CLI
             </div>
             <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/86 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-              9 providers. 40 + tools. Your models.
+              9 providers. 43 tools. Your models.
             </div>
           </div>
 
@@ -659,7 +662,7 @@ export default function LandingShipItCLISection() {
             },
             {
               className: "landing-hero-floating-b",
-              title: "30 Tools",
+              title: "40 Tools",
               label: "Files, git, security, code",
               icon: Layers3,
               color: "from-blue-500 to-cyan-500",
@@ -722,6 +725,10 @@ export default function LandingShipItCLISection() {
                   className="relative z-10 w-full rounded-[22px] object-cover"
                   loading="eager"
                 />
+                {/* Animated tools orbit */}
+                <div className="absolute -right-16 -bottom-16 z-20 w-64 h-64 opacity-80 hidden xl:block">
+                  <ShipItToolsOrbitSvg />
+                </div>
               </div>
             </div>
           </div>
@@ -980,7 +987,7 @@ export default function LandingShipItCLISection() {
           <div className="mt-3 flex flex-wrap gap-1.5">
             {[
               "Multi-provider",
-              "30 tools",
+              "40 tools",
               "HITL safety",
               "Auto-compact",
               "Image support",

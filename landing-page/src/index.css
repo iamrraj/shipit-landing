@@ -210,6 +210,32 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .animate-float-delay {
   animation: float-delay 9s ease-in-out infinite;
 }
+.animate-float-delayed {
+  animation: float-delay 8s ease-in-out 2s infinite;
+}
+
+/* Aurora animations for dark CTA */
+@keyframes aurora-1 {
+  0%, 100% { transform: translateX(-10%) rotate(-15deg); opacity: 0.6; }
+  50% { transform: translateX(10%) rotate(-12deg); opacity: 1; }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translateX(5%) rotate(20deg); opacity: 0.5; }
+  50% { transform: translateX(-8%) rotate(25deg); opacity: 0.9; }
+}
+@keyframes aurora-3 {
+  0%, 100% { transform: translateY(5%) rotate(-8deg); opacity: 0.4; }
+  50% { transform: translateY(-10%) rotate(-5deg); opacity: 0.8; }
+}
+.animate-aurora-1 { animation: aurora-1 12s ease-in-out infinite; }
+.animate-aurora-2 { animation: aurora-2 15s ease-in-out infinite; }
+.animate-aurora-3 { animation: aurora-3 18s ease-in-out infinite; }
+
+/* Slide in from right for notification cards */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
 @keyframes fade-rise {
   from {

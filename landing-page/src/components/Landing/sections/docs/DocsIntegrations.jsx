@@ -164,21 +164,21 @@ export function DocsCli() {
         Terminal-native coding agent — standalone or as the execution engine inside the workspace. Multi-provider routing across 100+ models.
       </p>
       <CodeBlock>{`# Interactive mode
-shipit-cli
+shipit
 
 # Single prompt
-shipit-cli "review this file and suggest improvements"
+shipit "review this file and suggest improvements"
 
 # With specific provider
-shipit-cli --provider openai --model gpt-4o "add error handling"
+shipit --provider openai --model gpt-4o "add error handling"
 
 # With local model
-shipit-cli --provider ollama --model llama3.3 "explain this function"`}</CodeBlock>
+shipit --provider ollama --model llama3.3 "explain this function"`}</CodeBlock>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         <InfoCard icon={Bot} title="Multi-provider">Route to any model from Bedrock, OpenAI, Gemini, Groq, Ollama, Together AI, or OpenRouter.</InfoCard>
         <InfoCard icon={Terminal} title="Terminal-native">Full terminal UI with streaming, file previews, and interactive editing.</InfoCard>
         <InfoCard icon={FileCode2} title="Codebase-aware">Understands project structure, reads files, applies multi-file changes.</InfoCard>
-        <InfoCard icon={Shield} title="30+ Tools">Built-in tools for file operations, search, git, testing, and more.</InfoCard>
+        <InfoCard icon={Shield} title="40+ Tools">Built-in tools for file operations, search, git, security, testing, and more.</InfoCard>
       </div>
       <div className="mt-5 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4">
         <div className="flex items-center gap-2 text-sm font-semibold text-amber-600 dark:text-amber-300">

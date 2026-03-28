@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ShipIt — LinkedIn Banner</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #060a14;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .banner {
+        width: 1200px;
+        height: 627px;
+        background: linear-gradient(
+          145deg,
+          #0a0f1e 0%,
+          #0f172a 50%,
+          #0c1222 100%
+        );
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Ambient glows */
+      .glow-a {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.15) 0%,
+          transparent 70%
+        );
+        top: -150px;
+        left: 50px;
+        pointer-events: none;
+      }
+      .glow-b {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.1) 0%,
+          transparent 70%
+        );
+        bottom: -100px;
+        right: 200px;
+        pointer-events: none;
+      }
+      .glow-c {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(16, 185, 129, 0.08) 0%,
+          transparent 70%
+        );
+        top: 200px;
+        right: -50px;
+        pointer-events: none;
+      }
+
+      /* ── Top bar ── */
+      .top-bar {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 40px 0;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #3b82f6, #6366f1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 16px;
+      }
+      .logo-text {
+        font-size: 22px;
+        font-weight: 800;
+        color: #f1f5f9;
+        letter-spacing: -0.02em;
+      }
+      .logo-text em {
+        font-style: normal;
+        background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .top-pills {
+        display: flex;
+        gap: 8px;
+      }
+      .top-pill {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #64748b;
+      }
+      .top-pill.accent {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.25);
+        color: #60a5fa;
+      }
+
+      /* ── Main content grid ── */
+      .content {
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        height: calc(627px - 60px);
+      }
+
+      /* ── Left: text ── */
+      .left {
+        padding: 32px 40px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .headline {
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1.05;
+        color: #f1f5f9;
+        letter-spacing: -0.02em;
+      }
+      .headline .gradient {
+        background: linear-gradient(
+          135deg,
+          #3b82f6,
+          #0ea5e9,
+          #10b981,
+          #6366f1,
+          #3b82f6
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        margin-top: 6px;
+      }
+
+      .desc {
+        margin-top: 16px;
+        font-size: 13.5px;
+        line-height: 1.75;
+        color: #94a3b8;
+        max-width: 420px;
+      }
+      .desc strong {
+        color: #cbd5e1;
+        font-weight: 600;
+      }
+      .cli-highlight {
+        display: inline-block;
+        background: linear-gradient(135deg, #f97316, #fb923c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .feat {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 10px 14px;
+      }
+      .feat-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: #f1f5f9;
+      }
+      .feat-label {
+        font-size: 10px;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-top: 1px;
+      }
+
+      .author {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #f97316, #fb923c);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 13px;
+      }
+      .author-info {
+        display: flex;
+        flex-direction: column;
+      }
+      .author-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #e2e8f0;
+      }
+      .author-role {
+        font-size: 10px;
+        color: #64748b;
+      }
+      .author-url {
+        margin-left: auto;
+        font-size: 12px;
+        font-weight: 700;
+        color: #3b82f6;
+        letter-spacing: 0.01em;
+      }
+
+      /* ── Right: screenshots ── */
+      .right {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shot {
+        position: absolute;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+      }
+
+      /* Dashboard — main, top-left of right panel */
+      .shot-1 {
+        top: 16px;
+        left: 0;
+        width: 380px;
+        z-index: 4;
+      }
+
+      /* Engine — top-right, overlapping */
+      .shot-2 {
+        top: 8px;
+        left: 340px;
+        width: 340px;
+        z-index: 3;
+      }
+
+      /* Settings/Config — middle-left */
+      .shot-3 {
+        top: 240px;
+        left: -20px;
+        width: 310px;
+        z-index: 5;
+      }
+
+      /* MCP — middle-right */
+      .shot-4 {
+        top: 210px;
+        left: 260px;
+        width: 330px;
+        z-index: 5;
+      }
+
+      /* CLI — bottom center, prominent */
+      .shot-5 {
+        bottom: -10px;
+        left: 80px;
+        width: 440px;
+        z-index: 6;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      /* Pipeline/Message — peeking bottom-left */
+      .shot-6 {
+        bottom: 30px;
+        left: -30px;
+        width: 200px;
+        z-index: 3;
+        opacity: 0.6;
+      }
+
+      /* Fades */
+      .fade-l {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        background: linear-gradient(to right, #0c1222, transparent);
+        z-index: 8;
+      }
+      .fade-b {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: linear-gradient(to top, #0c1222, transparent);
+        z-index: 8;
+      }
+      .fade-t {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: linear-gradient(to bottom, #0c1222 10%, transparent);
+        z-index: 8;
+      }
+      .fade-r {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to left, #0c1222, transparent);
+        z-index: 8;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="glow-a"></div>
+      <div class="glow-b"></div>
+      <div class="glow-c"></div>
+
+      <!-- Top bar -->
+      <div class="top-bar">
+        <div class="logo-area">
+          <img src="shipit-logo.svg" alt="ShipIt" style="height: 38px; width: auto; color: #f1f5f9;" />
+        </div>
+        <div class="top-pills">
+          <div class="top-pill accent">AI Workspace</div>
+          <div class="top-pill">Claude + Codex + Gemini + ShipIt CLI</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <!-- Left -->
+        <div class="left">
+          <div class="headline">
+            One AI workspace to
+            <span class="gradient">build, review, and ship code.</span>
+          </div>
+
+          <p class="desc">
+            Describe what you want in plain English. ShipIt
+            <strong>understands your repo</strong>, writes code,
+            <strong>reviews changes</strong>, scans for security issues,
+            <strong>runs tests</strong>, creates PRs, and notifies your team —
+            all from a single chat message. Choose between
+            <strong>Claude, Codex, Gemini</strong>, or route through
+            <strong>your own models</strong> with the
+            <span class="cli-highlight">ShipIt CLI</span> —
+            a terminal-native coding agent like Claude Code, but on your own models
+            across 9 providers.
+          </p>
+
+          <div class="feature-grid">
+            <div class="feat">
+              <div class="feat-val">4</div>
+              <div class="feat-label">AI Engines</div>
+            </div>
+            <div class="feat">
+              <div class="feat-val">100+</div>
+              <div class="feat-label">Models</div>
+            </div>
+            <div class="feat">
+              <div class="feat-val">9</div>
+              <div class="feat-label">Providers</div>
+            </div>
+            <div class="feat">
+              <div class="feat-val">28+</div>
+              <div class="feat-label">MCP Integrations</div>
+            </div>
+          </div>
+
+          <div class="author">
+            <div class="author-info"></div>
+            <div class="author-url">shipiit.com</div>
+          </div>
+        </div>
+
+        <!-- Right: screenshots -->
+        <div class="right">
+          <div class="fade-l"></div>
+          <div class="fade-b"></div>
+          <div class="fade-t"></div>
+          <div class="fade-r"></div>
+
+          <img
+            class="shot shot-1"
+            src="../src/components/Landing/svg/Dashboard.png"
+            alt="Dashboard"
+          />
+          <img
+            class="shot shot-2"
+            src="../src/components/Landing/svg/Engine.png"
+            alt="Engine"
+          />
+          <img
+            class="shot shot-3"
+            src="../src/components/Landing/svg/Config.png"
+            alt="Config"
+          />
+          <img
+            class="shot shot-4"
+            src="../src/components/Landing/svg/Mcp.png"
+            alt="MCP"
+          />
+          <img
+            class="shot shot-5"
+            src="../src/components/Landing/svg/shipit_cli.png"
+            alt="CLI"
+          />
+          <img
+            class="shot shot-6"
+            src="../src/components/Landing/svg/Message.png"
+            alt="Pipeline"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
