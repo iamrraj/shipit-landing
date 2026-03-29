@@ -4,39 +4,40 @@ import LandingSectionHeader from "../LandingSectionHeader";
 import { PipelineStepIllustration } from "../LandingIllustrations";
 import { pipelineSteps } from "../data";
 import useScrollReveal from "../useScrollReveal";
+import useStickyScroll from "../hooks/useStickyScroll";
 
 const AUTO_ADVANCE_MS = 2000;
 
 export default function LandingPipelineSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Scroll-driven sticky: pipeline steps advance on scroll
+  const { wrapperRef: stickyRef, activeIndex: stickyIndex } = useStickyScroll(pipelineSteps.length);
+  const [manualIndex, setManualIndex] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
+
+  // Scroll overrides manual/auto
+  const activeIndex = manualIndex ?? stickyIndex;
+  const setActiveIndex = (idx) => setManualIndex(idx);
+
   const [carouselRef, carouselVisible] = useScrollReveal();
   const [bottomRef, bottomVisible] = useScrollReveal();
 
+  // Reset manual override when scroll changes
   useEffect(() => {
-    if (isPaused) {
-      return undefined;
-    }
-
-    const timerId = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % pipelineSteps.length);
-    }, AUTO_ADVANCE_MS);
-
-    return () => window.clearInterval(timerId);
-  }, [isPaused]);
+    setManualIndex(null);
+  }, [stickyIndex]);
 
   const goToStep = (index) => {
     setActiveIndex(index);
   };
 
   const goToPrevious = () => {
-    setActiveIndex((current) =>
-      current === 0 ? pipelineSteps.length - 1 : current - 1,
+    setActiveIndex(
+      activeIndex === 0 ? pipelineSteps.length - 1 : activeIndex - 1,
     );
   };
 
   const goToNext = () => {
-    setActiveIndex((current) => (current + 1) % pipelineSteps.length);
+    setActiveIndex((activeIndex + 1) % pipelineSteps.length);
   };
 
   return (
@@ -46,7 +47,13 @@ export default function LandingPipelineSection() {
         title="A visible multi-stage workflow instead of a black box."
         desc="See the delivery loop in a tighter, stage-by-stage view instead of reading through a long process wall."
       />
-      <div className="mt-7">
+      {/* Sticky scroll-driven pipeline */}
+      <div
+        ref={stickyRef}
+        className="sticky-wrapper mt-7"
+        style={{ height: "800vh" }}
+      >
+        <div className="sticky-inner" style={{ padding: "1.5rem 0" }}>
         <div
           ref={carouselRef}
           className={`scroll-reveal landing-stage-card rounded-[36px] border border-[var(--color-border)] p-5 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:p-6 ${carouselVisible ? "is-visible" : ""}`}
@@ -207,6 +214,7 @@ export default function LandingPipelineSection() {
               </button>
             ))}
           </div>
+        </div>
         </div>
       </div>
 

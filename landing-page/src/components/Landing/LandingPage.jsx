@@ -289,7 +289,7 @@ export default function LandingPage() {
     landingPages.find((page) => page.id === currentPage) ?? landingPages[0];
 
   useEffect(() => {
-    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   const handleOpenWaitlist = () => {
@@ -299,7 +299,7 @@ export default function LandingPage() {
   return (
     <div
       ref={scrollContainerRef}
-      className="relative h-screen overflow-y-auto scroll-smooth bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] [scrollbar-gutter:stable]"
+      className="relative min-h-screen scroll-smooth bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]"
     >
       <LandingBackdrop />
 

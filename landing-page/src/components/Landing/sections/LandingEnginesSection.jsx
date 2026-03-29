@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import LandingSectionHeader from "../LandingSectionHeader";
 import { supportedEngines } from "../data";
 import useScrollReveal from "../useScrollReveal";
+import useStickyScroll from "../hooks/useStickyScroll";
 
 const engineIcons = {
   "ShipIt CLI": Cloud,
@@ -49,7 +50,14 @@ export default function LandingEnginesSection() {
     );
   }, []);
 
-  const [activeName, setActiveName] = useState("ShipIt CLI");
+  // Scroll-driven sticky: auto-switch engine on scroll
+  const { wrapperRef: stickyRef, activeIndex: stickyIndex } = useStickyScroll(4);
+  const [manualName, setManualName] = useState(null);
+
+  // Scroll overrides manual selection
+  const activeName = manualName ?? orderedEngines[stickyIndex]?.name ?? "ShipIt CLI";
+  const setActiveName = (name) => setManualName(name);
+
   const activeEngine =
     orderedEngines.find((engine) => engine.name === activeName) ??
     orderedEngines[0];
@@ -128,52 +136,78 @@ export default function LandingEnginesSection() {
         </div>
       </div>
 
-      {/* ── Engine selectors + detail panel ──── */}
-      <div className="mt-5 rounded-[38px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:p-6">
-        <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr]">
-          <div className="grid content-start gap-4">
-            <div className="grid gap-3">
-              {orderedEngines.map((engine, index) => {
-                const Icon = engineIcons[engine.name] ?? Sparkles;
-                const isActive = engine.name === activeEngine.name;
-                return (
-                  <button
-                    key={engine.name}
-                    type="button"
-                    onClick={() => setActiveName(engine.name)}
-                    className={`landing-engine-selector text-left ${
-                      isActive ? "is-active" : ""
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-start gap-3">
-                        <div className="landing-engine-selector-icon">
-                          <Icon size={18} />
-                        </div>
-                        <div>
-                          <div
-                            className={`text-base font-semibold ${engine.color}`}
-                          >
-                            {engine.name}
-                          </div>
-                          <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-                            {engineRoles[engine.name] || `0${index + 1}`}
-                          </div>
-                          <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                            {engine.desc}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-                        {isActive ? "Active" : `0${index + 1}`}
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+      {/* ── Sticky scroll-driven engine selector ──── */}
+      <div
+        ref={stickyRef}
+        className="sticky-wrapper mt-5"
+        style={{ height: "500vh" }}
+      >
+        <div className="sticky-inner" style={{ padding: "0" }}>
+          <div className="rounded-[38px] border border-[var(--color-border)] bg-[var(--color-surface)]/84 p-5 shadow-[0_30px_70px_-46px_rgba(15,23,42,0.42)] backdrop-blur-xl sm:p-6">
+            {/* Step indicators */}
+            <div className="mb-4 flex items-center gap-2">
+              {orderedEngines.map((engine, i) => (
+                <button
+                  key={engine.name}
+                  type="button"
+                  onClick={() => setActiveName(engine.name)}
+                  className={`sticky-step-bar cursor-pointer ${i === stickyIndex ? "is-active" : ""}`}
+                  title={engine.name}
+                />
+              ))}
+              <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                {activeEngine.name} — {engineRoles[activeEngine.name]}
+              </span>
             </div>
-          </div>
+
+            <div className="grid gap-5 xl:grid-cols-[0.92fr_1.08fr]">
+              <div className="grid content-start gap-4">
+                <div className="grid gap-3">
+                  {orderedEngines.map((engine, index) => {
+                    const Icon = engineIcons[engine.name] ?? Sparkles;
+                    const isActive = engine.name === activeEngine.name;
+                    return (
+                      <button
+                        key={engine.name}
+                        type="button"
+                        onClick={() => setActiveName(engine.name)}
+                        className={`landing-engine-selector text-left transition-all duration-500 ${
+                          isActive ? "is-active scale-[1.01]" : "opacity-60 hover:opacity-100"
+                        }`}
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="flex items-start gap-3">
+                            <div className="landing-engine-selector-icon">
+                              <Icon size={18} />
+                            </div>
+                            <div>
+                              <div
+                                className={`text-base font-semibold ${engine.color}`}
+                              >
+                                {engine.name}
+                              </div>
+                              <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+                                {engineRoles[engine.name] || `0${index + 1}`}
+                              </div>
+                              <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+                                {engine.desc}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${
+                            isActive
+                              ? "border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                              : "border-[var(--color-border)] bg-[var(--color-surface)]/90 text-[var(--color-text-muted)]"
+                          }`}>
+                            {isActive ? "Active" : `0${index + 1}`}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
 
           <div className="landing-engine-panel rounded-[34px] border border-[var(--color-border)] p-5 shadow-[0_24px_50px_-38px_rgba(15,23,42,0.4)]">
             <div className="landing-engine-panel-orb landing-engine-panel-orb-a" />
@@ -298,6 +332,8 @@ export default function LandingEnginesSection() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>

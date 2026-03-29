@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Shield,
   Workflow,
@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../useScrollReveal";
+import useStickyScroll from "../hooks/useStickyScroll";
 import {
   IntegrationHubSVG,
   WorkflowSVG,
@@ -58,15 +59,29 @@ const features = [
 ];
 
 export default function LandingFeaturesShowcase({ onJoinWaitlist }) {
-  const [activeIdx, setActiveIdx] = useState(0);
+  // Scroll-driven sticky: features advance on scroll
+  const { wrapperRef: stickyRef, activeIndex: stickyIdx } = useStickyScroll(features.length);
+  const [manualIdx, setManualIdx] = useState(null);
+  const activeIdx = manualIdx ?? stickyIdx;
+  const setActiveIdx = (idx) => setManualIdx(idx);
+
+  // Reset manual override when scroll changes
+  useEffect(() => { setManualIdx(null); }, [stickyIdx]);
+
   const [sectionRef, visible] = useScrollReveal();
   const active = features[activeIdx];
   const ActiveIllustration = active.Illustration;
 
   return (
     <section id="features-showcase" className="mt-10" ref={sectionRef}>
+      <div
+        ref={stickyRef}
+        className="sticky-wrapper"
+        style={{ height: "500vh" }}
+      >
+        <div className="sticky-inner" style={{ padding: "1.5rem 0" }}>
       <div className={`scroll-reveal ${visible ? "is-visible" : ""}`}>
-        {/* Compact tab bar */}
+        {/* Tab bar with step indicators */}
         <div className="flex items-center justify-center border-b border-[var(--color-border)]">
           {features.map((f, idx) => {
             const Icon = f.icon;
@@ -75,10 +90,12 @@ export default function LandingFeaturesShowcase({ onJoinWaitlist }) {
               <button
                 key={f.id}
                 onClick={() => setActiveIdx(idx)}
-                className={`flex items-center gap-1.5 border-b-2 px-5 py-3 text-[13px] font-semibold transition ${
+                className={`flex items-center gap-1.5 border-b-2 px-5 py-3 text-[13px] font-semibold transition-all duration-300 ${
                   isActive
                     ? "border-[var(--color-accent)] text-[var(--color-accent)]"
-                    : "border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]"
+                    : idx < activeIdx
+                      ? "border-[var(--color-accent)]/30 text-[var(--color-accent)]/60"
+                      : "border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
                 <Icon size={14} />
@@ -88,10 +105,17 @@ export default function LandingFeaturesShowcase({ onJoinWaitlist }) {
           })}
         </div>
 
+        {/* Step progress bar */}
+        <div className="mx-auto mt-3 mb-2 flex max-w-xs gap-2">
+          {features.map((_, i) => (
+            <div key={i} className={`sticky-step-bar flex-1 ${i === activeIdx ? "is-active" : ""}`} />
+          ))}
+        </div>
+
         {/* Content: info left, compact SVG right */}
-        <div className="mt-6 grid items-center gap-6 lg:grid-cols-2">
+        <div className="mt-4 grid items-center gap-6 lg:grid-cols-2">
           {/* Left: Info */}
-          <div>
+          <div className="transition-all duration-500">
             <div className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r ${active.color} px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white`}>
               <active.icon size={10} />
               {active.label}
@@ -113,11 +137,13 @@ export default function LandingFeaturesShowcase({ onJoinWaitlist }) {
           </div>
 
           {/* Right: Animated SVG — constrained height */}
-          <div className="flex items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/40 p-5">
+          <div className="flex items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/40 p-5 transition-all duration-500">
             <div className="w-3/5 max-w-[380px]">
               <ActiveIllustration />
             </div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </section>
