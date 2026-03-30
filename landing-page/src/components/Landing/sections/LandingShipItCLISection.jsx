@@ -239,7 +239,9 @@ function CopyBtn({ text }) {
   );
 }
 
-/* ─── detail carousel ─── */
+/* ─── detail carousel (scroll-driven sticky) ─── */
+
+import useStickyScroll from "../hooks/useStickyScroll";
 
 const DETAIL_AUTO_MS = 3400;
 const DETAIL_SLIDE_COUNT = 3;
@@ -251,22 +253,27 @@ const detailSteps = [
 ];
 
 function DetailCarousel({ detailRef, detailVisible }) {
-  const [activeIdx, setActiveIdx] = useState(0);
+  // Scroll-driven sticky: detail slides advance on scroll
+  const { wrapperRef: stickyRef, activeIndex: stickyIdx } = useStickyScroll(DETAIL_SLIDE_COUNT);
+  const [manualIdx, setManualIdx] = useState(null);
+  const activeIdx = manualIdx ?? stickyIdx;
+  const setActiveIdx = (idx) => setManualIdx(idx);
   const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    if (isPaused) return undefined;
-    const id = window.setInterval(() => {
-      setActiveIdx((c) => (c + 1) % DETAIL_SLIDE_COUNT);
-    }, DETAIL_AUTO_MS);
-    return () => window.clearInterval(id);
-  }, [isPaused]);
+  // Reset manual on scroll change
+  useEffect(() => { setManualIdx(null); }, [stickyIdx]);
 
   return (
     <div
       ref={detailRef}
       className={`stagger-children mt-5 ${detailVisible ? "is-visible" : ""}`}
     >
+      <div
+        ref={stickyRef}
+        className="sticky-wrapper"
+        style={{ height: "400vh" }}
+      >
+        <div className="sticky-inner" style={{ padding: "1.5rem 0" }}>
       <div
         className="rounded-[36px] border border-[var(--color-border)] bg-[var(--color-surface)]/86 p-5 shadow-[0_24px_50px_-38px_rgba(15,23,42,0.28)] backdrop-blur-xl"
         onMouseEnter={() => setIsPaused(true)}
@@ -545,6 +552,8 @@ function DetailCarousel({ detailRef, detailVisible }) {
             </button>
           ))}
         </div>
+        </div>
+      </div>
       </div>
     </div>
   );

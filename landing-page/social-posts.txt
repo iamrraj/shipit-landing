@@ -1,0 +1,80 @@
+════════════════════════════════════════════════════════════════
+  LINKEDIN POST #1 — ShipIt Company Page (@ShipIt)
+════════════════════════════════════════════════════════════════
+
+Introducing ShipIt — one AI developer workspace for building, reviewing, and shipping from a single message.
+
+Most AI coding tools give you generation. ShipIt gives you a visible delivery system.
+
+Here's what makes it different:
+
+- 4 AI engines in one interface — Claude, Codex, Gemini, and ShipIt CLI
+- 100+ models across 9 providers (AWS Bedrock, OpenAI, Gemini, Vertex AI, Groq, Ollama, and more)
+- A structured 7-step pipeline: parse task, validate paths, implement, code review, auto-fix, run tests, report
+- Built-in security scanning, slash commands, prompt templates, and 28+ MCP integrations
+- GitHub integration, Slack/Discord notifications, and full API surface
+- ShipIt CLI — a terminal-native coding agent, like Claude Code, but on your own models
+
+Describe what you want in plain English. ShipIt understands the repo, writes code, reviews changes, fixes issues, runs tests, and hands back a result — all visible, all under control.
+
+One command to install. One token to activate. One workspace to ship.
+
+Join the waitlist: https://shipiit.com
+
+#AI #DeveloperTools #CodingAgent #ShipIt #DevTools #SoftwareEngineering #AIWorkspace #OpenSource
+
+
+════════════════════════════════════════════════════════════════
+  LINKEDIN POST #2 — Personal Account (Rahulraj)
+════════════════════════════════════════════════════════════════
+
+I've been building something for the past few months and it's finally ready to share.
+
+It's called ShipIt — an AI developer workspace that turns plain-English requests into a controlled delivery loop.
+
+The problem I kept hitting: AI coding tools feel like magic demos, but using them on real codebases is messy. No visibility into what's happening. No review loop. No structured pipeline. Just "generate and hope."
+
+So I built a workspace where:
+
+-> You describe the task in one message
+-> ShipIt understands your repo, writes code, reviews changes, runs security scans, fixes issues, runs tests, and reports back
+-> Everything stays visible — diffs, test results, review comments, next actions
+-> You choose the engine: Claude for reasoning, Codex for speed, Gemini for multimodal, or ShipIt CLI with your own models across 9 providers
+
+The ShipIt CLI is the part I'm most excited about — it's like Claude Code, but you bring your own models. Route across Bedrock, OpenAI, Ollama, Groq, and more from one terminal-native interface. 30 built-in tools. HITL safety gates. Sessions that resume.
+
+It's not just code generation. It's a visible delivery system with a real pipeline.
+
+If you're tired of AI tools that feel like a black box — this is the opposite of that.
+
+Join the waitlist: https://shipiit.com
+
+Would love your feedback.
+
+#ShipIt #AI #DevTools #BuildInPublic #CodingAgent #SoftwareEngineering
+
+
+════════════════════════════════════════════════════════════════
+  VIDEO / MEDIA NOTES
+════════════════════════════════════════════════════════════════
+
+Yes, you can add video to LinkedIn posts! Options:
+
+1. Native video (recommended) — Upload directly to LinkedIn
+   - Max 10 min, ideally 30-90 seconds for engagement
+   - MP4 format, 1920x1080 or 1080x1080
+   - Auto-plays in feed (muted), so add captions
+   - Gets 5x more engagement than text-only posts
+
+2. Suggested video ideas:
+   - 60-second demo: type a task -> watch ShipIt run the full pipeline -> see the result
+   - Screen recording of the Settings UI showing engine switching
+   - Terminal recording of ShipIt CLI in action (the shipit_cli.png screenshot but as video)
+   - Side-by-side: "AI tool without ShipIt" vs "with ShipIt"
+
+3. For the company post: polished product demo with the UI
+   For personal post: raw screen recording feels more authentic for "build in public"
+
+4. LinkedIn also supports:
+   - Image carousels (PDF upload, each page = slide) — great for feature breakdowns
+   - Document posts (PDF) — can repurpose landing page sections as slides

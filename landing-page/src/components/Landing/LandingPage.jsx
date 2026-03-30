@@ -25,6 +25,8 @@ import LandingDocsSection from "./sections/LandingDocsSection";
 import LandingShipItCLISection from "./sections/LandingShipItCLISection";
 import LandingFeaturesShowcase from "./sections/LandingFeaturesShowcase";
 import LandingUseCaseTabs from "./sections/LandingUseCaseTabs";
+import LandingTermsSection from "./sections/LandingTermsSection";
+import LandingPrivacySection from "./sections/LandingPrivacySection";
 
 const landingPages = [
   {
@@ -84,6 +86,26 @@ const landingPages = [
     desc: "Complete reference for installation, configuration, AI engines, pipeline, integrations, and the full API surface.",
     highlights: ["Setup", "Engines", "Pipeline", "API"],
     sections: [LandingDocsSection],
+  },
+  {
+    id: "terms",
+    label: "Terms",
+    eyebrow: "Legal",
+    title: "Terms & Conditions",
+    desc: "Review the terms that govern your use of ShipIt.",
+    highlights: ["Terms", "License", "Usage"],
+    sections: [LandingTermsSection],
+    hidden: true,
+  },
+  {
+    id: "privacy",
+    label: "Privacy",
+    eyebrow: "Legal",
+    title: "Privacy Policy",
+    desc: "How we handle your data — local-first, privacy-safe.",
+    highlights: ["Privacy", "GDPR", "CCPA"],
+    sections: [LandingPrivacySection],
+    hidden: true,
   },
 ];
 
@@ -281,14 +303,41 @@ function LandingPageIntro({
   );
 }
 
+// Map hash fragments to page IDs
+const hashToPage = { privacy: "privacy", tos: "terms", terms: "terms" };
+const pageToHash = { privacy: "privacy", terms: "tos" };
+
+function getPageFromHash() {
+  const hash = window.location.hash.replace("#", "").toLowerCase();
+  return hashToPage[hash] || null;
+}
+
 export default function LandingPage() {
   const scrollContainerRef = useRef(null);
-  const [currentPage, setCurrentPage] = useState("overview");
+  const [currentPage, setCurrentPage] = useState(() => getPageFromHash() || "overview");
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const activePage =
     landingPages.find((page) => page.id === currentPage) ?? landingPages[0];
 
+  // Sync hash → page on browser back/forward
   useEffect(() => {
+    const onHashChange = () => {
+      const page = getPageFromHash();
+      if (page) setCurrentPage(page);
+      else if (!window.location.hash) setCurrentPage("overview");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  // Sync page → hash + scroll to top
+  useEffect(() => {
+    const hash = pageToHash[currentPage];
+    if (hash) {
+      window.history.pushState(null, "", `#${hash}`);
+    } else if (window.location.hash) {
+      window.history.pushState(null, "", window.location.pathname);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
@@ -310,7 +359,7 @@ export default function LandingPage() {
           onNavigate={setCurrentPage}
         />
         <main className="pb-14">
-          {!["overview", "shipit", "start", "docs"].includes(activePage.id) && (
+          {!["overview", "shipit", "start", "docs", "terms", "privacy"].includes(activePage.id) && (
             <LandingPageIntro
               pageId={activePage.id}
               eyebrow={activePage.eyebrow}
@@ -330,7 +379,7 @@ export default function LandingPage() {
             />
           ))}
 
-          <LandingFooterCTA onJoinWaitlist={handleOpenWaitlist} />
+          <LandingFooterCTA onJoinWaitlist={handleOpenWaitlist} onNavigate={setCurrentPage} />
         </main>
       </div>
 

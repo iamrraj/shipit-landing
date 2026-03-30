@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import useScrollReveal from "../useScrollReveal";
 
-export default function LandingFooterCTA({ onJoinWaitlist }) {
+export default function LandingFooterCTA({ onJoinWaitlist, onNavigate }) {
   const [ref, isVisible] = useScrollReveal();
 
   return (
@@ -79,6 +79,17 @@ export default function LandingFooterCTA({ onJoinWaitlist }) {
             Built with <strong className="text-accent-hover">ShipIt + Claude Code + Gemini + Codex</strong>
           </span>
         </div>
+      </div>
+
+      {/* Legal links */}
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-3 px-2 text-xs text-[var(--color-text-muted)]">
+        <span>&copy; {new Date().getFullYear()} ShipIt. All rights reserved.</span>
+        <span className="opacity-40">|</span>
+        <a href="#tos" className="transition hover:text-[var(--color-accent)] hover:underline">Terms</a>
+        <span className="opacity-40">|</span>
+        <a href="#privacy" className="transition hover:text-[var(--color-accent)] hover:underline">Privacy</a>
+        <span className="opacity-40">|</span>
+        <a href="mailto:rahul@iamrraj.com" className="transition hover:text-[var(--color-accent)] hover:underline">Contact</a>
       </div>
     </section>
   );
