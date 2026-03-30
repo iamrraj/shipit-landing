@@ -76,29 +76,8 @@ export default function LandingHeader({
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="hidden 2xl:flex flex-wrap items-center gap-2">
-            {["Local-first", "Review-aware", "Multi-provider"].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/84 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
+        <div className="flex items-center gap-3">
           <LandingThemeToggle />
-          <button
-            type="button"
-            onClick={onJoinWaitlist}
-            className="group inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_18px_35px_-24px_rgba(37,99,235,0.65)] transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:shadow-[0_24px_50px_-20px_rgba(37,99,235,0.5)] hover:scale-[1.02]"
-          >
-            <Sparkles
-              size={14}
-              className="transition-transform group-hover:scale-110"
-            />
-            Join Waitlist
-          </button>
         </div>
       </div>
 
