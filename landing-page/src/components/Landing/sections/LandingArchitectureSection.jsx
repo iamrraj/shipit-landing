@@ -15,7 +15,10 @@ export default function LandingArchitectureSection() {
           title="Frontend, API, engines, and integrations laid out in one story."
           desc="The code is separated cleanly: React UI on top, FastAPI + SSE in the middle, engines and clients underneath."
         />
-        <div ref={topRef} className={`stagger-children mt-5 flex flex-wrap justify-center gap-2 ${topVisible ? "is-visible" : ""}`}>
+        <div
+          ref={topRef}
+          className={`stagger-children mt-5 flex flex-wrap justify-center gap-2 ${topVisible ? "is-visible" : ""}`}
+        >
           {architectureHighlights.map((item) => (
             <span
               key={item}
@@ -58,9 +61,15 @@ export default function LandingArchitectureSection() {
                   className="landing-card-3d-inner rounded-[22px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/84 p-4"
                 >
                   <div className="flex items-center gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                    <span className={`h-2 w-2 rounded-full ${
-                      item.icon === "sky" ? "bg-sky-500" : item.icon === "indigo" ? "bg-indigo-500" : "bg-emerald-500"
-                    }`} />
+                    <span
+                      className={`h-2 w-2 rounded-full ${
+                        item.icon === "sky"
+                          ? "bg-sky-500"
+                          : item.icon === "indigo"
+                            ? "bg-indigo-500"
+                            : "bg-emerald-500"
+                      }`}
+                    />
                     {item.label}
                   </div>
                 </div>
@@ -69,11 +78,19 @@ export default function LandingArchitectureSection() {
           </div>
 
           <div className="overflow-hidden rounded-[20px] border border-[var(--color-border)] shadow-sm">
-            <img src="/screenshots/mcp.png" alt="ShipIt MCP Server configuration" className="w-full object-cover" loading="lazy" />
+            <img
+              src="/screenshots/mcp.png"
+              alt="ShipIt MCP Server configuration"
+              className="w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 
-        <div ref={layersRef} className={`scroll-reveal mt-5 rounded-[30px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/42 p-5 ${layersVisible ? "is-visible" : ""}`}>
+        <div
+          ref={layersRef}
+          className={`scroll-reveal mt-5 rounded-[30px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)]/42 p-5 ${layersVisible ? "is-visible" : ""}`}
+        >
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
               Layered stack
@@ -83,9 +100,16 @@ export default function LandingArchitectureSection() {
             </div>
           </div>
 
-          <div className={`stagger-children grid gap-4 lg:grid-cols-2 ${layersVisible ? "is-visible" : ""}`}>
+          <div
+            className={`stagger-children grid gap-4 lg:grid-cols-2 ${layersVisible ? "is-visible" : ""}`}
+          >
             {architectureLayers.map(({ icon: Icon, title, desc }, index) => {
-              const layerColors = ["bg-sky-500/10 text-sky-600", "bg-indigo-500/10 text-indigo-600", "bg-violet-500/10 text-violet-600", "bg-emerald-500/10 text-emerald-600"];
+              const layerColors = [
+                "bg-sky-500/10 text-sky-600",
+                "bg-indigo-500/10 text-indigo-600",
+                "bg-violet-500/10 text-violet-600",
+                "bg-emerald-500/10 text-emerald-600",
+              ];
               return (
                 <div
                   key={title}
@@ -95,7 +119,9 @@ export default function LandingArchitectureSection() {
                       : "border-[var(--color-border)] bg-[var(--color-surface)]/82"
                   }`}
                 >
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl shadow-sm transition group-hover:scale-110 ${layerColors[index]}`}>
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl shadow-sm transition group-hover:scale-110 ${layerColors[index]}`}
+                  >
                     <Icon size={20} />
                   </div>
                   <div>

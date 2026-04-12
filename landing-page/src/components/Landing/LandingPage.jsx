@@ -36,7 +36,12 @@ const landingPages = [
     title: "A cleaner entry point into ShipIt.",
     desc: "Start with the product story and core value before going deeper into engines, workflow, and setup.",
     highlights: ["Product story", "Core value", "Modern UI"],
-    sections: [LandingHeroSection, LandingFeaturesShowcase, LandingUseCaseTabs, LandingBenefitsSection],
+    sections: [
+      LandingHeroSection,
+      LandingFeaturesShowcase,
+      LandingUseCaseTabs,
+      LandingBenefitsSection,
+    ],
   },
   {
     id: "shipit",
@@ -314,7 +319,9 @@ function getPageFromHash() {
 
 export default function LandingPage() {
   const scrollContainerRef = useRef(null);
-  const [currentPage, setCurrentPage] = useState(() => getPageFromHash() || "overview");
+  const [currentPage, setCurrentPage] = useState(
+    () => getPageFromHash() || "overview",
+  );
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const activePage =
     landingPages.find((page) => page.id === currentPage) ?? landingPages[0];
@@ -359,7 +366,14 @@ export default function LandingPage() {
           onNavigate={setCurrentPage}
         />
         <main className="pb-14">
-          {!["overview", "shipit", "start", "docs", "terms", "privacy"].includes(activePage.id) && (
+          {![
+            "overview",
+            "shipit",
+            "start",
+            "docs",
+            "terms",
+            "privacy",
+          ].includes(activePage.id) && (
             <LandingPageIntro
               pageId={activePage.id}
               eyebrow={activePage.eyebrow}
@@ -379,7 +393,10 @@ export default function LandingPage() {
             />
           ))}
 
-          <LandingFooterCTA onJoinWaitlist={handleOpenWaitlist} onNavigate={setCurrentPage} />
+          <LandingFooterCTA
+            onJoinWaitlist={handleOpenWaitlist}
+            onNavigate={setCurrentPage}
+          />
         </main>
       </div>
 

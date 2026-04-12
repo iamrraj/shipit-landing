@@ -7,12 +7,16 @@ const navItems = [
   { id: "engines", label: "Engines" },
   { id: "workflow", label: "Workflow" },
   // { id: "start", label: "Start" },
-  // { id: "docs", label: "Docs" },
+  {
+    id: "docs",
+    label: "Docs",
+    link: "https://docs.shipit.dev/",
+  },
 ];
 
 export default function LandingHeader({
   currentPage,
-  onJoinWaitlist,
+
   onNavigate,
 }) {
   return (
@@ -44,14 +48,14 @@ export default function LandingHeader({
             <button
               key={item.id}
               type="button"
-              onClick={() => onNavigate(item.id)}
+              onClick={() => onNavigate(item?.link ? item.link : item.id)}
               className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-2 text-sm transition-all duration-300 ${
                 currentPage === item.id
                   ? "bg-[var(--color-accent)] text-white shadow-[0_12px_30px_-18px_rgba(37,99,235,0.6)]"
                   : "text-[var(--color-text-secondary)] hover:bg-[var(--color-accent)]/5 hover:text-[var(--color-accent)]"
               }`}
             >
-              {item.iconType === "compass" && (
+              {item?.iconType === "compass" && (
                 <span
                   className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${
                     currentPage === item.id
@@ -62,7 +66,7 @@ export default function LandingHeader({
                   <Compass size={12} />
                 </span>
               )}
-              {item.icon && (
+              {item?.icon && (
                 <span
                   className={`inline-flex h-6 w-6 items-center justify-center rounded-xl ${
                     currentPage === item.id ? "bg-white/14" : "bg-transparent"
@@ -86,7 +90,7 @@ export default function LandingHeader({
           <button
             key={item.id}
             type="button"
-            onClick={() => onNavigate(item.id)}
+            onClick={() => onNavigate(item?.link ? item.link : item.id)}
             className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 text-xs font-medium transition ${
               currentPage === item.id
                 ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
